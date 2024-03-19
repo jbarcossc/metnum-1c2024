@@ -92,7 +92,7 @@ a_{21} & a_{22} & ... & a_{2n} \\
 a_{i1} & a_{i2} & ... & a_{in} \\
 ... & ... & ... & ... \\
 a_{m1} & a_{m2} & ... & a_{mn}
-\end{array}Right)
+\end{array}\right)
 $$
 
 #### **Suma**
@@ -203,21 +203,21 @@ a_{21} & a_{22} & ... & a_{2n} \\
 a_{i1} & a_{i2} & ... & a_{in} \\
 ... & ... & ... & ... \\
 a_{m1} & a_{m2} & ... & a_{mn}
-\end{array}Right)
+\end{array}\right)
 $$
 
 $$
 x = 
 \left(\begin{array}{cc}
 x_{11} & x_{12} & ... & x_{1n}
-\end{array}Right)
+\end{array}\right)
 $$
 
 $$
 b = 
 \left(\begin{array}{cc}
 b_{11} & b_{12} & ... & b_{1n}
-\end{array}Right) \\
+\end{array}\right) \\
 
 Ax = b
 $$
