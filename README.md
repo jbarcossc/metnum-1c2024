@@ -332,8 +332,8 @@ $$
 Vamos a probar que $b_{jj} = a_{jj}^{-1}$ y $b_{kj} = 0, k=j+1,...,n$.
 
 $b_{jj} = a_{jj}^{-1}$:  
-${(BA)}_{jj}$ debe ser 1, luego,  
-$b_{j1 }a_{1j} + ... + b_{jj} a_{jj} + ... + b_{jn} a_{nj} = 1$
+$BA_{jj}$ debe ser 1, luego,  
+$b_{j1} a_{1j} + ... + b_{jj} a_{jj} + ... + b_{jn} a_{nj} = 1$
 
 Por inducción,  
 $b_{j1} = ... = b_{jj-1} = 0$
@@ -345,7 +345,7 @@ Se tiene
 $b_{jj}a_{jj} = 1$ y $b_{jj}=a_{jj}^{-1}$
 
 $b_{kj}=0, k=j+1,...,n$:  
-${(BA)}_{kj}$ $= 0$, luego  
+$BA_{kj}$ $= 0$, luego  
 $b_{k1} a_{1j} + ... + {b_kj} a_{jj} + ... + n_{jn} a_{nj} = 1$
 
 Por inducción,  
@@ -388,7 +388,26 @@ $C_{12} = A_{11}B_{12} + A_{12}B_{22} = [1, 1] + [0, 3] = [1,4]$ y $C_{12} \in R
 
 $C_{21} = A_{21}B_{11} + A_{22}B_{21} = [0,1]^t + [7,2]^t = [7,3]^t$ y $C_{21} \in R^{1x2}$
 
-$C_{22} = A_{21}B_{12} + A_{22}B_{22} =$ $\begin{bmatrix} 0 & 0 \\ 1 & 1 \\ \end{bmatrix}$ $+$ $\begin{bmatrix} 0 & 5 \\ 0 & 2 \end{bmatrix}$ $=$ $\begin{bmatrix} 0 & 5 \\ 1 & 2 \end{bmatrix}$ y $C_{22} \in R^{2x2}$
+$C_{22} = A_{21}B_{12} + A_{22}B_{22} =$
+$
+\begin{bmatrix}
+0 & 0 \\
+1 & 1 \\
+\end{bmatrix}
+$
+$+$
+$
+\begin{bmatrix}
+0 & 5 \\
+0 & 2
+\end{bmatrix}
+$
+$=$
+$\begin{bmatrix}
+0 & 5 \\
+1 & 2
+\end{bmatrix}
+$ y $C_{22} \in R^{2x2}$
 
 #### 2) b.
 
@@ -403,9 +422,59 @@ $C_{11} = A_{11}B_{11} + A_{12}B_{21}$ donde $A_{12} \in R^{2x2}$ y $B_{21} \in 
 Son posibles todas aquellas particiones donde en la diagonal queden particiones cuadradas y de los mismos tamaños, ya que deben multiplicarse entre ellas por ambos lados.  
 En este caso en específico, sólo hay dos particiones posibles distintas de las matrices originales, que son a) y:
 
-$A_{11} =$ $\begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix}$, $A_{12} =$ $\begin{bmatrix} a_{13} \\ a_{23} \end{bmatrix}$, $A_{21} =$ $\begin{bmatrix} a_{31} & a_{32} \end{bmatrix}$, $A_{22} =$ $\begin{bmatrix} a_{33} \end{bmatrix}$
+$A_{11} =$
+$
+\begin{bmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22}
+\end{bmatrix}
+$
+, $A_{12} =$
+$
+\begin{bmatrix}
+a_{13} \\
+a_{23}
+\end{bmatrix}
+$
+, $A_{21} =$
+$
+\begin{bmatrix}
+a_{31} & a_{32}
+\end{bmatrix}
+$
+, $A_{22} =$
+$
+\begin{bmatrix}
+a_{33}
+\end{bmatrix}
+$
 
-$B_{11} = $\begin{bmatrix} b_{11} & b_{12} \\ b_{21} & b_{22} \end{bmatrix}$, $B_{12} =$ $\begin{bmatrix} b_{13} \\ b_{23} \end{bmatrix}$, $B_{21} =$ $\begin{bmatrix} b_{31} & b_{32} \end{bmatrix}$, $B_{22} =$ $\begin{bmatrix} b_{33} \end{bmatrix}$
+$B_{11} =$
+$
+\begin{bmatrix}
+b_{11} & b_{12} \\
+b_{21} & b_{22}
+\end{bmatrix}
+$
+, $B_{12} =$
+$
+\begin{bmatrix}
+b_{13} \\
+b_{23}
+\end{bmatrix}
+$
+, $B_{21} =$
+$
+\begin{bmatrix}
+b_{31} & b_{32}
+\end{bmatrix}
+$
+, $B_{22} =$
+$
+\begin{bmatrix}
+b_{33}
+\end{bmatrix}
+$
 
 ### **Vectores canónicos**
 
