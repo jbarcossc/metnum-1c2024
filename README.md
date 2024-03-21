@@ -276,10 +276,10 @@ $$
 b =
 \begin{bmatrix}
 b_{11} & b_{12} & ... & b_{1n}
-\end{bmatrix} \\
-
-Ax = b
+\end{bmatrix}
 $$
+
+$$Ax = b$$
 
 ### Tarea
 
@@ -306,7 +306,17 @@ Luego, $C$ es diagonal superior. Ídem para diagonal inferior, invirtiendo el se
 #### **Ejercicio 2**
 
 Sea $A \in R^{nxn}$ tiangular superior y $BA = I_n$.  
-Teniendo en cuenta que $A$ es triangular superior, $b_{11} a_{11} = 1$ y $b_{j1} a_{11} = 0$. Por lo tanto, la primera columna de B es $\begin{bmatrix}a_{11}^{-1} \\ 0 \\ : \\ 0\end{bmatrix}$  
+Teniendo en cuenta que $A$ es triangular superior, $b_{11} a_{11} = 1$ y $b_{j1} a_{11} = 0$. Por lo tanto, la primera columna de B es
+
+$$
+\begin{bmatrix}
+a_{11}^{-1} \\
+0 \\
+: \\
+0
+\end{bmatrix}
+$$
+
 Suponiendo $j > 1$ e inductivamente que las $j-1$ primeras columnas de B son
 
 $$
@@ -378,7 +388,7 @@ $C_{12} = A_{11}B_{12} + A_{12}B_{22} = [1, 1] + [0, 3] = [1,4]$ y $C_{12} \in R
 
 $C_{21} = A_{21}B_{11} + A_{22}B_{21} = [0,1]^t + [7,2]^t = [7,3]^t$ y $C_{21} \in R^{1x2}$
 
-$C_{22} = A_{21}B_{12} + A_{22}B_{22} = \begin{bmatrix} 0 & 0 \\ 1 & 1 \\ \end{bmatrix} +  \begin{bmatrix} 0 & 5 \\ 0 & 2\end{bmatrix} = \begin{bmatrix} 0 & 5 \\ 1 & 2 \end{bmatrix}$ y $C_{22} \in R^{2x2}$
+$C_{22} = A_{21}B_{12} + A_{22}B_{22} =$ $\begin{bmatrix} 0 & 0 \\ 1 & 1 \\ \end{bmatrix}$ $+$ $\begin{bmatrix} 0 & 5 \\ 0 & 2 \end{bmatrix}$ $=$ $\begin{bmatrix} 0 & 5 \\ 1 & 2 \end{bmatrix}$ y $C_{22} \in R^{2x2}$
 
 #### 2) b.
 
@@ -393,9 +403,9 @@ $C_{11} = A_{11}B_{11} + A_{12}B_{21}$ donde $A_{12} \in R^{2x2}$ y $B_{21} \in 
 Son posibles todas aquellas particiones donde en la diagonal queden particiones cuadradas y de los mismos tamaños, ya que deben multiplicarse entre ellas por ambos lados.  
 En este caso en específico, sólo hay dos particiones posibles distintas de las matrices originales, que son a) y:
 
-$A_{11} = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix}$, $A_{12} = \begin{bmatrix} a_{13} \\ a_{23} \end{bmatrix}$, $A_{21} = \begin{bmatrix} a_{31} & a_{32} \end{bmatrix}$, $A_{22} = \begin{bmatrix} a_{33} \end{bmatrix}$
+$A_{11} =$ $\begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix}$, $A_{12} =$ $\begin{bmatrix} a_{13} \\ a_{23} \end{bmatrix}$, $A_{21} =$ $\begin{bmatrix} a_{31} & a_{32} \end{bmatrix}$, $A_{22} =$ $\begin{bmatrix} a_{33} \end{bmatrix}$
 
-$B_{11} = \begin{bmatrix} b_{11} & b_{12} \\ b_{21} & b_{22} \end{bmatrix}$, $B_{12} = \begin{bmatrix} b_{13} \\ b_{23} \end{bmatrix}$, $B_{21} = \begin{bmatrix} b_{31} & b_{32} \end{bmatrix}$, $B_{22} = \begin{bmatrix} b_{33} \end{bmatrix}$
+$B_{11} = $\begin{bmatrix} b_{11} & b_{12} \\ b_{21} & b_{22} \end{bmatrix}$, $B_{12} =$ $\begin{bmatrix} b_{13} \\ b_{23} \end{bmatrix}$, $B_{21} =$ $\begin{bmatrix} b_{31} & b_{32} \end{bmatrix}$, $B_{22} =$ $\begin{bmatrix} b_{33} \end{bmatrix}$
 
 ### **Vectores canónicos**
 
