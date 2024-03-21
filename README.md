@@ -409,9 +409,9 @@ $C_{11} = A_{11}B_{11} + A_{12}B_{21}$ donde $A_{12} \in \mathbb{R}^{2x2}$ y $B_
 Son posibles todas aquellas particiones donde en la diagonal queden particiones cuadradas y de los mismos tamaños, ya que deben multiplicarse entre ellas por ambos lados.  
 En este caso en específico, sólo hay dos particiones posibles distintas de las matrices originales, que son a) y:
 
-$A_{11} =$ $\begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix}$, $A_{12} =$ $\begin{bmatrix} a_{13} \\ a_{23} \end{bmatrix}$, $A_{21} =$ $\begin{bmatrix} a_{31} & a_{32} \end{bmatrix}$, $A_{22} =$ $\begin{bmatrix} a_{33} \end{bmatrix}$
+$A_{11} = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix}$, $A_{12} = \begin{bmatrix} a_{13} \\ a_{23} \end{bmatrix}$, $A_{21} = \begin{bmatrix} a_{31} & a_{32} \end{bmatrix}$, $A_{22} = \begin{bmatrix} a_{33} \end{bmatrix}$
 
-$B_{11} = $\begin{bmatrix} b_{11} & b_{12} \\ b_{21} & b_{22} \end{bmatrix}$, $B_{12} =$ $\begin{bmatrix} b_{13} \\ b_{23} \end{bmatrix}$, $B_{21} =$ $\begin{bmatrix} b_{31} & b_{32} \end{bmatrix}$, $B_{22} =$ $\begin{bmatrix} b_{33} \end{bmatrix}$
+$B_{11} = \begin{bmatrix} b_{11} & b_{12} \\ b_{21} & b_{22} \end{bmatrix}$, $B_{12} = \begin{bmatrix} b_{13} \\ b_{23} \end{bmatrix}$, $B_{21} = \begin{bmatrix} b_{31} & b_{32} \end{bmatrix}$, $B_{22} = \begin{bmatrix} b_{33} \end{bmatrix}$
 
 ### **Vectores canónicos**
 
