@@ -59,7 +59,8 @@
       - [2) b.](#2-b)
       - [3) c.](#3-c)
       - [3) ¿Qué otras particiones son posibles?](#3-qué-otras-particiones-son-posibles)
-    - [**Guía práctica 1 - Ejercicio 3**](#guía-práctica-1---ejercicio-3)
+    - [**Vectores canónicos**](#vectores-canónicos)
+    - [**Multiplicación de matrices por vectores canónicos**](#multiplicación-de-matrices-por-vectores-canónicos)
 
 # Clases teóricas
 
@@ -304,6 +305,47 @@ Luego, $C$ es diagonal superior. Ídem para diagonal inferior, invirtiendo el se
 
 #### **Ejercicio 2**
 
+Sea $A \in R^{nxn}$ tiangular superior y $BA = I_n$.  
+Teniendo en cuenta que $A$ es triangular superior, $b_{11} a_{11} = 1$ y $b_{j1} a_{11} = 0$. Por lo tanto, la primera columna de B es $\begin{bmatrix}a_{11}^{-1} \\ 0 \\ : \\ 0\end{bmatrix}$  
+Suponiendo $j > 1$ e inductivamente que las $j-1$ primeras columnas de B son
+
+$$
+\begin{bmatrix}
+b_{11} = a_{11}^{-1} & ... & b_{1j-2} & b_{1j-1} \\
+: & : & : & : \\
+0 & ... & 0 & b_{j-1j-1} = a_{j-1j-1}^{-1} \\
+: & : & : & : \\
+0 & ... & 0 & 0
+\end{bmatrix}
+$$
+
+Vamos a probar que $b_{jj} = a_{jj}^{-1}$ y $b_{kj} = 0, k=j+1,...,n$.
+
+$b_{jj} = a_{jj}^{-1}$:  
+$(BA)_{jj}$ debe ser 1, luego,  
+$b_{j1}a_{1j}+...+b_{jj}a_{jj}+...b_{jn}a_{nj} = 1$
+
+Por inducción,  
+$b_{j1} = ... = b_{jj-1} = 0$
+
+Y por tiangularidad de $A$  
+$a_{j+1j} = ... = a_{nj} = 0, k > j$
+
+Se tiene  
+$b_{jj}a_{jj} = 1$ y $b_{jj}=a_{jj}^{-1}$
+
+$b_{kj}=0, k=j+1,...,n$:  
+$(BA)_{kj} = 0$, luego  
+$b_{k1}a_{1j}+...+{b_kj}a_{jj}+...+n_{jn}a_{nj} = 1$
+
+Por inducción,  
+$b_{k1} = ... = b_{kj-1} = 0$
+
+Y por triangularidad de A  
+$a_{j+1j} = ... = a_{nj} = 0, k > j$
+
+Luego, $b_{kj}a_{jj} = 0$, puesto que $a_{jj}$ es no nulo, $b_{kj}$ debe serlo.
+
 # Clases prácticas
 
 ## Clase 1: 20 de marzo
@@ -355,7 +397,14 @@ $A_{11} = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix}$, $A_
 
 $B_{11} = \begin{bmatrix} b_{11} & b_{12} \\ b_{21} & b_{22} \end{bmatrix}$, $B_{12} = \begin{bmatrix} b_{13} \\ b_{23} \end{bmatrix}$, $B_{21} = \begin{bmatrix} b_{31} & b_{32} \end{bmatrix}$, $B_{22} = \begin{bmatrix} b_{33} \end{bmatrix}$
 
-### **Guía práctica 1 - Ejercicio 3**
+### **Vectores canónicos**
+
+El vector canónico $e_i \in R^{nx1}$, es aquel que posee el valor 0 en todas sus posiciones, excepto por la posición $i$, donde vale 1.
+
+### **Multiplicación de matrices por vectores canónicos**
+
+$Ae_i$ es igual a la columna $i$ de $A$.  
+$e_i^tA$ es igual a la fila $i$ de $A$.
 
 [^1]: _Extensión de VSCode sugerida para editar y previsualizar: [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-n-one). Con Ctrl+K V abre preview._
 [^2]: _Para visualizar las notas al pie en VSCode: [Markdown Footnotes](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-footnotes)_
