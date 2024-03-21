@@ -70,7 +70,7 @@
 
 #### **Definición**
 
-$v \in R^n$ n-upla de coeficientes reales
+$v \in \mathbb{R}^n$ n-upla de coeficientes reales
 $v = (v_{1},v_{2},...,v_{n})$
 
 #### **Suma**
@@ -81,7 +81,7 @@ $w = v + u$ con $w_i = v_i + u_i$ para $i = 1,...,n$ (conmutativa, asociativa).
 #### **Multiplicación por escalar**
 
 Intuición: Multiplica todos los números del vector por el escalar.  
-Sea $a \in R$, $w = \alpha v$ con $w_{i} = \alpha v_{i}$ para $i = 1,...,n$
+Sea $a \in \mathbb{R}$, $w = \alpha v$ con $w_{i} = \alpha v_{i}$ para $i = 1,...,n$
 
 #### **Producto interno**
 
@@ -102,7 +102,7 @@ Existen $a_k$ con $k = 1,...,K$ no todos nulos tal que $\sum_{k=1}^{K} a_k v^k =
 
 #### **Subespacio generado**
 
-$S = {x \in R^n \text{ tal que } x = \sum_{k=1}^{K} \alpha_k v^k}$
+$S = {x \in \mathbb{R}^n \text{ tal que } x = \sum_{k=1}^{K} \alpha_k v^k}$
 
 #### **Dimensión de S**
 
@@ -116,7 +116,7 @@ Conjunto de vectores linealmente independientes que generan a S.
 
 #### **Definición**
 
-$A \in R^{mxn}$
+$A \in \mathbb{R}^{mxn}$
 
 $$
 A =
@@ -135,42 +135,42 @@ $$
 Intruición: suma lugar a lugar.  
 Definida si $m = p, n = q$  
 $C = A + B$ con $c_{ij} = a_{ij} + b_{ij}$ para $i = 1,...,m$, $j = 1,...,n.$  
-$C \in R^{mxn}$ (conmutativa, asociativa)
+$C \in \mathbb{R}^{mxn}$ (conmutativa, asociativa)
 
 #### **Producto por escalar**
 
 Intuición: multiplica cada elemento de la matriz por el escalar.  
-$C = \alpha A$ con $c_{ij} = \alpha a_{ij}$ para $i = 1,...,m$, $j = 1,...,n$, $C \in R^{mxn}$
+$C = \alpha A$ con $c_{ij} = \alpha a_{ij}$ para $i = 1,...,m$, $j = 1,...,n$, $C \in \mathbb{R}^{mxn}$
 
 #### **Multiplicación**
 
 Definida si $n = p$. $C = AB$ tal que
-$A \in R^{mxn}$, $B \in R^{pxq}$
-$c_{ij} = \sum_{k=1}^{n} a_{ik} b_{kj}, para i = 1,...,m$, $j = 1,...,q$, $C \in R^{mxq}$
+$A \in \mathbb{R}^{mxn}$, $B \in \mathbb{R}^{pxq}$
+$c_{ij} = \sum_{k=1}^{n} a_{ik} b_{kj}, para i = 1,...,m$, $j = 1,...,q$, $C \in \mathbb{R}^{mxq}$
 NO es conmutativa.
 
 #### **Matriz identidad**
 
 Intuición: Diagonal de unos y el resto ceros.  
-$I \in R^{nxn}$ si
+$I \in \mathbb{R}^{nxn}$ si
 $I_{ii} = 1$, $I_{ij} = 0$ si $i \neq j$
 
 #### **Matriz diagonal**
 
 Intuición: Diagonal de números y el resto cero.  
-$D \in R^{nxn}$ si
+$D \in \mathbb{R}^{nxn}$ si
 $D_{ii} = k_i, D_{ij} = 0$ si $i \neq j$
 
 #### **Matriz triangular superior**
 
 Intuición: De la diagonal para abajo es todo ceros.  
-$U \in R^{nxn}$ con $u_{ij} = 0$ si $i > j$  
+$U \in \mathbb{R}^{nxn}$ con $u_{ij} = 0$ si $i > j$  
 Producto de triangulares superiores es triangular superior.
 
 #### **Matriz triangular inferior**
 
 Intuición: De la diagonal para arriba es todo ceros.  
-$L \in R^{nxn}$ con $l_{ij} = 0$ si $i < j$  
+$L \in \mathbb{R}^{nxn}$ con $l_{ij} = 0$ si $i < j$  
 Producto de triangulares inferiores es triangular inferior.
 
 #### **Rango de una matriz**
@@ -179,7 +179,7 @@ Cantidad máxima de columnas o filas linealmente independiente.
 
 #### **Matriz inversa**
 
-Definida si $m = n$. $A^{-1} \in R^{nxn}$.
+Definida si $m = n$. $A^{-1} \in \mathbb{R}^{nxn}$.
 $AA^{-1} = A^{-1}A = I$  
 $A$ inversible $\iff rang(A) = n \iff det(A) \neq 0$  
 La inversa (si existe) de una matriz diagonal es matriz diagonal.  
@@ -189,13 +189,13 @@ La inversa (si existe) de una matriz triangular superior es matriz triangular su
 #### **Matriz estrictamente diagonal dominante**
 
 Intuición: Cada elemento de la diagonal es mayor a la suma del resto de los elementos de su fila (todo en valor absoluto).  
-$A \in R^{nxn}$  
+$A \in \mathbb{R}^{nxn}$  
 $|a_{ii}| > \sum_{j\neq i} |a_{ij}|$ $\forall 1,...,n$
 
 #### **Matriz transpuesta**
 
 Intuición: Las filas ahora son las columnas y las columnas las filas.  
-$A^t \in R^{nxm}$  
+$A^t \in \mathbb{R}^{nxm}$  
 $a^t_{ij} = a_{ji}$ para todo $i = 1,...,m$, $j = 1,...,n$  
 $(A^t)^t = A$  
 $(A + B)^t = A^t + B^t$  
@@ -204,7 +204,7 @@ $(A^t)^{-1} = (A^{-1})^t$
 
 #### **Matriz de permutación**
 
-$P \in R^{nxn}$. Son una permutación de las filas (o columnas) de la matriz identidad.
+$P \in \mathbb{R}^{nxn}$. Son una permutación de las filas (o columnas) de la matriz identidad.
 
 #### **Multiplicar por matrices de permutación**
 
@@ -213,7 +213,7 @@ Si multiplico con la matriz de permutación a derecha, permuta las columnas.
 
 #### **Matriz elemental (tipo 1)**
 
-$E \in R^{nxn}$. Matriz identidad con una fila multiplicada por un escalar no nulo.
+$E \in \mathbb{R}^{nxn}$. Matriz identidad con una fila multiplicada por un escalar no nulo.
 
 #### **Multiplicar por matriz elemental (tipo 1)**
 
@@ -222,7 +222,7 @@ Si multiplico con la matriz elemental a derecha, multiplica la columna por el es
 
 #### **Matriz elemental (tipo 2)**
 
-$E \in R^{nxn}$. Matriz identidad con un elemento no nulo fuera de la diagonal.
+$E \in \mathbb{R}^{nxn}$. Matriz identidad con un elemento no nulo fuera de la diagonal.
 
 #### **Multiplicar por matriz elemental (tipo 2)**
 
@@ -231,15 +231,15 @@ Si multiplico con la matriz elemental a derecha con un escalar en $I_{ij}$, a la
 
 #### **Transformación linal**
 
-Multiplicar una matriz $A \in R^{mxn}$ por un vector $x \in R^{nx1}$ y obtener $y \in R^{mx1}$
+Multiplicar una matriz $A \in \mathbb{R}^{mxn}$ por un vector $x \in \mathbb{R}^{nx1}$ y obtener $y \in \mathbb{R}^{mx1}$
 
 #### **Espacio imagen**
 
-$Im(A) = {y \in R^m \text{ tal que existe } x \in R^n \text{ con } Ax = y}$
+$Im(A) = {y \in \mathbb{R}^m \text{ tal que existe } x \in \mathbb{R}^n \text{ con } Ax = y}$
 
 #### **Espacio nulo**
 
-$N(A) = {x \in R^n \text{ tal que } Ax = 0}$  
+$N(A) = {x \in \mathbb{R}^n \text{ tal que } Ax = 0}$  
 $N(A) \neq {0} \iff \text{ las columnas de A son linealmente dependientes.}$
 
 ### 3. Sistemas de ecuaciones lineales
@@ -251,7 +251,7 @@ $a_{21} x_1 + a_{22} x_2 + ... + a_{2n} x_n = b_2$
 ...  
 $a_{n1} x_1 + a_{n2} x_2 + ... + a_{nn} x_n = b_n$
 
-$A \in R^{mxn}$
+$A \in \mathbb{R}^{mxn}$
 
 $$
 A =
@@ -295,9 +295,9 @@ Demostrar que la inversa (si existe) de una matriz triangular inferior es matriz
 
 #### **Ejercicio 1**
 
-Tomando dos matrices diagonales superiores genéricas $A$ y $B \in R^{nxn}$, veamos el resultado de $C = AB$.  
+Tomando dos matrices diagonales superiores genéricas $A$ y $B \in \mathbb{R}^{nxn}$, veamos el resultado de $C = AB$.  
 $c_{ij} = \sum_{k=1}^{n} a_{ik}*b_{kj}$  
-Recordemos que, como ambas son matrices diagonales superiores, debajo de la diagonal, sus valores son 0. Por lo tanto, en $c_{ij}$, donde $i > j$, en la fila $i$ de $A$, tendremos exactamente $i - 1$ posiciones con valor 0, pues son aquellas posiciones donde $i > j$ y que, por definición, son 0. Además, en la columna $j$ de $B$, tendremos exactamente $n - j$ posiciones con valor 0, pues son las posiciones donde $i > j$ y, por definición, distintas de 0.  
+\mathbb{R}ecordemos que, como ambas son matrices diagonales superiores, debajo de la diagonal, sus valores son 0. Por lo tanto, en $c_{ij}$, donde $i > j$, en la fila $i$ de $A$, tendremos exactamente $i - 1$ posiciones con valor 0, pues son aquellas posiciones donde $i > j$ y que, por definición, son 0. Además, en la columna $j$ de $B$, tendremos exactamente $n - j$ posiciones con valor 0, pues son las posiciones donde $i > j$ y, por definición, distintas de 0.  
 Luego, para $\sum_{k=1}^{i-1} a_{ik}*b_{kj}$, $a_{ik}$ siempre será 0, por lo que la sumatoria será 0.  
 Para $\sum_{k=i}^{n} a_{ik}*b_{kj}$, $b_{kj}$ siempre será 0, pues $k > j$, por comenzar siendo $i$, que es mayor a $j$, por lo que la sumatoria será 0.  
 Por lo tanto, para todas las posiciones debajo de la diagonal, el valor resultante será 0.  
@@ -305,7 +305,7 @@ Luego, $C$ es diagonal superior. Ídem para diagonal inferior, invirtiendo el se
 
 #### **Ejercicio 2**
 
-Sea $A \in R^{nxn}$ tiangular superior y $BA = I_n$.  
+Sea $A \in \mathbb{R}^{nxn}$ tiangular superior y $BA = I_n$.  
 Teniendo en cuenta que $A$ es triangular superior, $b_{11} a_{11} = 1$ y $b_{j1} a_{11} = 0$. Por lo tanto, la primera columna de B es
 
 $$
@@ -364,11 +364,11 @@ Luego, $b_{kj}a_{jj} = 0$, puesto que $a_{jj}$ es no nulo, $b_{kj}$ debe serlo.
 
 #### 1) a.
 
-Falso. $A \in R^{nxm}$ y $z \in R^{nx1}$, por lo que no se pueden multiplicar.
+Falso. $A \in \mathbb{R}^{nxm}$ y $z \in \mathbb{R}^{nx1}$, por lo que no se pueden multiplicar.
 
 #### 1) b.
 
-Falso. El resultado de multiplicar $x \in R^{nx1}$ y $z^t \in R^{1xn}$ debe pertenecer a $R^{nxn}$, no a $R^{1x1}$.
+Falso. El resultado de multiplicar $x \in \mathbb{R}^{nx1}$ y $z^t \in \mathbb{R}^{1xn}$ debe pertenecer a $\mathbb{R}^{nxn}$, no a $\mathbb{R}^{1x1}$.
 
 #### 1) c.
 
@@ -382,27 +382,27 @@ Verdadero.
 
 #### 2) a.
 
-$C_{11} = A_{11}B_{11} + A_{12}B_{21} = 1 + 9 = 10$ y $C_{11} \in R^{1x1}$
+$C_{11} = A_{11}B_{11} + A_{12}B_{21} = 1 + 9 = 10$ y $C_{11} \in \mathbb{R}^{1x1}$
 
-$C_{12} = A_{11}B_{12} + A_{12}B_{22} = [1, 1] + [0, 3] = [1,4]$ y $C_{12} \in R^{1x2}$
+$C_{12} = A_{11}B_{12} + A_{12}B_{22} = [1, 1] + [0, 3] = [1,4]$ y $C_{12} \in \mathbb{R}^{1x2}$
 
-$C_{21} = A_{21}B_{11} + A_{22}B_{21} = [0,1]^t + [7,2]^t = [7,3]^t$ y $C_{21} \in R^{1x2}$
+$C_{21} = A_{21}B_{11} + A_{22}B_{21} = [0,1]^t + [7,2]^t = [7,3]^t$ y $C_{21} \in \mathbb{R}^{1x2}$
 
 $$
 C_{22} = A_{21} B_{12} + A_{22} B_{22} = \begin{bmatrix} 0 & 0 \\ 1 & 1 \end{bmatrix} + \begin{bmatrix} 0 & 5 \\ 0 & 2 \end{bmatrix} = \begin{bmatrix} 0 & 5 \\ 1 & 2 \end{bmatrix}
 $$
 
 $$
-C_{22} \in \mathbb{R}^{2x2}
+C_{22} \in \mathbb{\mathbb{R}}^{2x2}
 $$
 
 #### 2) b.
 
-$C_{11} = A_{11}B_{11} + A_{12}B_{21}$ donde $A_{11} \in R^{1x2}$ y $B_{11} \in R^{1x1}$. Por lo tanto, no es posible.
+$C_{11} = A_{11}B_{11} + A_{12}B_{21}$ donde $A_{11} \in \mathbb{R}^{1x2}$ y $B_{11} \in \mathbb{R}^{1x1}$. Por lo tanto, no es posible.
 
 #### 3) c.
 
-$C_{11} = A_{11}B_{11} + A_{12}B_{21}$ donde $A_{12} \in R^{2x2}$ y $B_{21} \in R^{1x2}$. Por lo tanto, no es posible.
+$C_{11} = A_{11}B_{11} + A_{12}B_{21}$ donde $A_{12} \in \mathbb{R}^{2x2}$ y $B_{21} \in \mathbb{R}^{1x2}$. Por lo tanto, no es posible.
 
 #### 3) ¿Qué otras particiones son posibles?
 
@@ -415,7 +415,7 @@ $B_{11} = $\begin{bmatrix} b_{11} & b_{12} \\ b_{21} & b_{22} \end{bmatrix}$, $B
 
 ### **Vectores canónicos**
 
-El vector canónico $e_i \in R^{nx1}$, es aquel que posee el valor 0 en todas sus posiciones, excepto por la posición $i$, donde vale 1.
+El vector canónico $e_i \in \mathbb{R}^{nx1}$, es aquel que posee el valor 0 en todas sus posiciones, excepto por la posición $i$, donde vale 1.
 
 ### **Multiplicación de matrices por vectores canónicos**
 
