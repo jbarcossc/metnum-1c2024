@@ -378,7 +378,7 @@ $C_{12} = A_{11}B_{12} + A_{12}B_{22} = [1, 1] + [0, 3] = [1,4]$ y $C_{12} \in R
 
 $C_{21} = A_{21}B_{11} + A_{22}B_{21} = [0,1]^t + [7,2]^t = [7,3]^t$ y $C_{21} \in R^{1x2}$
 
-$C_{22} = A_{21}B_{12} + A_{22}B_{22} = {\begin{bmatrix} 0 & 0 \\ 1 & 1 \\ \end{bmatrix}} +  {\begin{bmatrix} 0 & 5 \\ 0 & 2\end{bmatrix}} = {\begin{bmatrix} 0 & 5 \\ 1 & 2 \end{bmatrix}}$ y $C_{22} \in R^{2x2}$
+$C_{22} = A_{21}B_{12} + A_{22}B_{22} = \begin{bmatrix} 0 & 0 \\ 1 & 1 \\ \end{bmatrix} +  \begin{bmatrix} 0 & 5 \\ 0 & 2\end{bmatrix} = \begin{bmatrix} 0 & 5 \\ 1 & 2 \end{bmatrix}$ y $C_{22} \in R^{2x2}$
 
 #### 2) b.
 
