@@ -332,8 +332,8 @@ $$
 Vamos a probar que $b_{jj} = a_{jj}^{-1}$ y $b_{kj} = 0, k=j+1,...,n$.
 
 $b_{jj} = a_{jj}^{-1}$:  
-$(BA)_{jj}$ debe ser 1, luego,  
-$b_{j1}a_{1j}+...+b_{jj}a_{jj}+...b_{jn}a_{nj} = 1$
+${(BA)}_{jj}$ debe ser 1, luego,  
+$b_{j1 }a_{1j} + ... + b_{jj} a_{jj} + ... + b_{jn} a_{nj} = 1$
 
 Por inducción,  
 $b_{j1} = ... = b_{jj-1} = 0$
@@ -345,8 +345,8 @@ Se tiene
 $b_{jj}a_{jj} = 1$ y $b_{jj}=a_{jj}^{-1}$
 
 $b_{kj}=0, k=j+1,...,n$:  
-$(BA)_{kj} = 0$, luego  
-$b_{k1}a_{1j}+...+{b_kj}a_{jj}+...+n_{jn}a_{nj} = 1$
+${(BA)}_{kj}$ $= 0$, luego  
+$b_{k1} a_{1j} + ... + {b_kj} a_{jj} + ... + n_{jn} a_{nj} = 1$
 
 Por inducción,  
 $b_{k1} = ... = b_{kj-1} = 0$
