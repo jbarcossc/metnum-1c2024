@@ -297,7 +297,7 @@ Demostrar que la inversa (si existe) de una matriz triangular inferior es matriz
 
 Tomando dos matrices diagonales superiores genéricas $A$ y $B \in \mathbb{R}^{nxn}$, veamos el resultado de $C = AB$.  
 $c_{ij} = \sum_{k=1}^{n} a_{ik}*b_{kj}$  
-\mathbb{R}ecordemos que, como ambas son matrices diagonales superiores, debajo de la diagonal, sus valores son 0. Por lo tanto, en $c_{ij}$, donde $i > j$, en la fila $i$ de $A$, tendremos exactamente $i - 1$ posiciones con valor 0, pues son aquellas posiciones donde $i > j$ y que, por definición, son 0. Además, en la columna $j$ de $B$, tendremos exactamente $n - j$ posiciones con valor 0, pues son las posiciones donde $i > j$ y, por definición, distintas de 0.  
+Recordemos que, como ambas son matrices diagonales superiores, debajo de la diagonal, sus valores son 0. Por lo tanto, en $c_{ij}$, donde $i > j$, en la fila $i$ de $A$, tendremos exactamente $i - 1$ posiciones con valor 0, pues son aquellas posiciones donde $i > j$ y que, por definición, son 0. Además, en la columna $j$ de $B$, tendremos exactamente $n - j$ posiciones con valor 0, pues son las posiciones donde $i > j$ y, por definición, distintas de 0.  
 Luego, para $\sum_{k=1}^{i-1} a_{ik}*b_{kj}$, $a_{ik}$ siempre será 0, por lo que la sumatoria será 0.  
 Para $\sum_{k=i}^{n} a_{ik}*b_{kj}$, $b_{kj}$ siempre será 0, pues $k > j$, por comenzar siendo $i$, que es mayor a $j$, por lo que la sumatoria será 0.  
 Por lo tanto, para todas las posiciones debajo de la diagonal, el valor resultante será 0.  
