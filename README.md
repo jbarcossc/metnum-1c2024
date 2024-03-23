@@ -412,7 +412,7 @@ $S = <v_1,...,v_k>$ es el conjunto de todas las combinaciones lineales de $v_1,.
 
 $B \subseteq \mathbb{V}$ es una base del espacio vectorial $\mathbb{V}$ si es un sistema de generadores linealmente independiente.
 
-- $<B> = \mathbb{V}$
+- $< B > = \mathbb{V}$
 - $B$ es linealmente independiente
 
 #### **Propiedad**
