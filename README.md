@@ -401,7 +401,7 @@ Si $C = \{v_1,...,v_k\}$ es un conjunto de vectores en $\mathbb{R}^n$
 Se dice que $x \in \mathbb{R}^n$ es combinación lineal de $C$ si:
 
 $$
-\exist {\alpha}_1,...,{\alpha}_k \in \mathbb{R} / x = {\alpha}_1v_1 + ... + {\alpha}_kv_k
+\exists {\alpha}_1,...,{\alpha}_k \in \mathbb{R} / x = {\alpha}_1v_1 + ... + {\alpha}_kv_k
 $$
 
 ### Independencia lineal
@@ -708,8 +708,8 @@ Luego, $ABx = A(Bx) = A*0 = 0$. Por lo tanto, $x \in Nu(AB)$.
 
 #### **20) b.**
 
-$\forall x \in Im(AB) \Rightarrow \exist v / ABv = x$.  
-Luego, $\forall x \Rightarrow \exist w = Bv / A(Bv) = x = Aw$.  
+$\forall x \in Im(AB) \Rightarrow \exists v / ABv = x$.  
+Luego, $\forall x \Rightarrow \exists w = Bv / A(Bv) = x = Aw$.  
 Entonces, $x \in Im(A)$.
 
 #### **20) c.**
