@@ -111,8 +111,8 @@ Sea $a \in \mathbb{R}$, $w = \alpha v$ con $w_{i} = \alpha v_{i}$ para $i = 1,..
 
 #### **Producto interno**
 
-Intuición: Multiplicación lugar a lugar y \suma de los resultados.  
-$< u, v > = \sum_{i=1}^{n} u_i v_i$
+Intuición: Multiplicación lugar a lugar y suma de los resultados.  
+$< u, v > = {\sum_{i=1}^{n}} u_i v_i$
 
 #### **Combinación lineal**
 
