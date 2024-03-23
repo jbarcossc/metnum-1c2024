@@ -586,8 +586,9 @@ $$
 
 Entonces, tenemos que
 
+$\sum_{i=1}^{n} a_i b_i^t =$
+
 $$
-\sum_{i=1}^{n} a_i b_i^t =
 \begin{bmatrix}
   a_{11} b_{11} & a_{11} b_{12} & ... & a_{11} b_{1n} \\\
   a_{21} b_{11} & a_{21} b_{12} & ... & a_{21} b_{1n} \\\
@@ -602,9 +603,6 @@ $$
   a_{ni} b_{i1} & ... & ... & a_{ni} b_{in}
 \end{bmatrix}
 + ... +
-$$
-
-$$
 \begin{bmatrix}
   a_{1n} b_{n1} & a_{1n} b_{n2} & ... & a_{1n} b_{nn} \\\
   a_{2n} b_{n1} & a_{2n} b_{n2} & ... & a_{2n} b_{nn} \\\
