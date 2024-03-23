@@ -560,60 +560,60 @@ Por lo tanto, si todas sus columnas son iguales, son la misma matriz.
 
 #### **3) b.**
 
-Miremos $a_1b_1^t$.
+Miremos $a_1 b_1^t$.
 
 $$
-a_1b_1^t =
+a_1 b_1^t =
 \begin{bmatrix}
-  a_{11}b_{11} & a_{11}b_{12} & ... & a_{11}b_{1n} \\\
-  a_{21}b_{11} & a_{21}b_{12} & ... & a_{21}b_{1n} \\\
+  a_{11} b_{11} & a_{11} b_{12} & ... & a_{11} b_{1n} \\\
+  a_{21} b_{11} & a_{21} b_{12} & ... & a_{21} b_{1n} \\\
   : & : & : & : \\\
-  a:{n1}b_{11} & ... & ... & a_{n1}b_{1n}
+  a_{n1} b_{11} & ... & ... & a_{n1} b_{1n}
 \end{bmatrix}
 $$
 
 Ahora veamos para el caso general
 
 $$
-a_ib_i^t =
+a_i b_i^t =
 \begin{bmatrix}
-  a_{1i}b_{i1} & a_{1i}b_{i2} & ... & a_{1i}b_{in} \\\
-  a_{2i}b_{i1} & a_{2i}b_{i2} & ... & a_{2i}b_{in} \\\
+  a_{1i} b_{i1} & a_{1i} b_{i2} & ... & a_{1i} b_{in} \\\
+  a_{2i} b_{i1} & a_{2i} b_{i2} & ... & a_{2i} b_{in} \\\
   : & : & : & : \\\
-  a:{ni}b_{i1} & ... & ... & a_{ni}b_{in}
+  a_{ni} b_{i1} & ... & ... & a_{ni} b_{in}
 \end{bmatrix}
 $$
 
 Entonces, tenemos que
 
 $$
-\sum_{i=1}^{n} a_ib_i^t =
+\sum_{i=1}^{n} a_i b_i^t =
 \begin{bmatrix}
-  a_{11}b_{11} & a_{11}b_{12} & ... & a_{11}b_{1n} \\\
-  a_{21}b_{11} & a_{21}b_{12} & ... & a_{21}b_{1n} \\\
+  a_{11} b_{11} & a_{11} b_{12} & ... & a_{11} b_{1n} \\\
+  a_{21} b_{11} & a_{21} b_{12} & ... & a_{21} b_{1n} \\\
   : & : & : & : \\\
-  a:{n1}b_{11} & ... & ... & a_{n1}b_{1n}
+  a_{n1} b_{11} & ... & ... & a_{n1} b_{1n}
 \end{bmatrix}
 + ... +
 \begin{bmatrix}
-  a_{1i}b_{i1} & a_{1i}b_{i2} & ... & a_{1i}b_{in} \\\
-  a_{2i}b_{i1} & a_{2i}b_{i2} & ... & a_{2i}b_{in} \\\
+  a_{1i} b_{i1} & a_{1i} b_{i2} & ... & a_{1i} b_{in} \\\
+  a_{2i} b_{i1} & a_{2i} b_{i2} & ... & a_{2i} b_{in} \\\
   : & : & : & : \\\
-  a:{ni}b_{i1} & ... & ... & a_{ni}b_{in}
+  a_{ni} b_{i1} & ... & ... & a_{ni} b_{in}
 \end{bmatrix}
 + \\ ...+
 \begin{bmatrix}
-  a_{1n}b_{n1} & a_{1n}b_{n2} & ... & a_{1n}b_{nn} \\\
-  a_{2n}b_{n1} & a_{2n}b_{n2} & ... & a_{2n}b_{nn} \\\
+  a_{1n} b_{n1} & a_{1n} b_{n2} & ... & a_{1n} b_{nn} \\\
+  a_{2n} b_{n1} & a_{2n} b_{n2} & ... & a_{2n} b_{nn} \\\
   : & : & : & : \\\
-  a:{nn}b_{n1} & ... & ... & a_{nn}b_{nn}
+  a_{nn} b_{n1} & ... & ... & a_{nn} b_{nn}
 \end{bmatrix}
 $$
 
 Por ende, si nos enfocamos en cada posición de manera individual,
 
 $$
-AB_{ij} = a_{i1}b_{1j} + ... + a_{ii}b_{ij} + ... + a_{in}b_{nj}
+AB_{ij} = a_{i1} b_{1j} + ... + a_{ii} b_{ij} + ... + a_{in} b_{nj}
 $$
 
 Que es exactamente lo mismo que el resultado tradicional de $AB_{ij}$.
