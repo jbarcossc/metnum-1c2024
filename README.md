@@ -111,24 +111,37 @@ Sea $a \in \mathbb{R}$, $w = \alpha v$ con $w_{i} = \alpha v_{i}$ para $i = 1,..
 
 #### **Producto interno**
 
-Intuición: Multiplicación lugar a lugar y suma de los resultados.  
-$< u, v > = \left( \sum_{i = 1}^{n} u_i v_i \right)$
+Intuición: Multiplicación lugar a lugar y suma de los resultados.
+
+$$
+< u, v > = \sum_{i = 1}^{n} u_i v_i
+$$
 
 #### **Combinación lineal**
 
-$w = \sum_{k=1}^{K} a_k v^k$
+$$
+w = \sum_{k=1}^{K} a_k v^k
+$$
 
 #### **Vectores linealmente independientes**
 
-$\sum_{k=1}^{K} a_k v^k = 0 \to a_k = 0 \forall k = 1,...,K$
+$$
+\sum_{k=1}^{K} a_k v^k = 0 \to a_k = 0 \forall k = 1,...,K
+$$
 
 #### **Vectores linealmente dependientes**
 
-Existen $a_k$ con $k = 1,...,K$ no todos nulos tal que $\sum_{k=1}^{K} a_k v^k = 0$
+Existen $a_k$ con $k = 1,...,K$ no todos nulos tal que
+
+$$
+\sum_{k=1}^{K} a_k v^k = 0
+$$
 
 #### **Subespacio generado**
 
-$S = {x \in \mathbb{R}^n \text{ tal que } x = \sum_{k=1}^{K} \alpha_k v^k}$
+$$
+S = \{x \in \mathbb{R}^n \text{ tal que } x = \sum_{k=1}^{K} \alpha_k v^k\}
+$$
 
 #### **Dimensión de S**
 
@@ -172,7 +185,11 @@ $C = \alpha A$ con $c_{ij} = \alpha a_{ij}$ para $i = 1,...,m$, $j = 1,...,n$, $
 
 Definida si $n = p$. $C = AB$ tal que
 $A \in \mathbb{R}^{mxn}$, $B \in \mathbb{R}^{pxq}$
-$c_{ij} = \sum_{k=1}^{n} a_{ik} b_{kj}, para i = 1,...,m$, $j = 1,...,q$, $C \in \mathbb{R}^{mxq}$
+
+$$
+c_{ij} = \sum_{k=1}^{n} a_{ik} b_{kj}, \text{ para } i = 1,...,m, j = 1,...,q, C \in \mathbb{R}^{mxq}
+$$
+
 NO es conmutativa.
 
 #### **Matriz identidad**
@@ -215,8 +232,11 @@ La inversa (si existe) de una matriz triangular superior es matriz triangular su
 #### **Matriz estrictamente diagonal dominante**
 
 Intuición: Cada elemento de la diagonal es mayor a la suma del resto de los elementos de su fila (todo en valor absoluto).  
-$A \in \mathbb{R}^{nxn}$  
-$|a_{ii}| > \sum_{j\neq i} |a_{ij}|$ $\forall 1,...,n$
+$A \in \mathbb{R}^{nxn}$
+
+$$
+|a_{ii}| > \sum_{j\neq i} |a_{ij}| ~ \forall 1,...,n
+$$
 
 #### **Matriz transpuesta**
 
@@ -321,11 +341,27 @@ Demostrar que la inversa (si existe) de una matriz triangular inferior es matriz
 
 #### **Ejercicio 1**
 
-Tomando dos matrices diagonales superiores genéricas $A$ y $B \in \mathbb{R}^{nxn}$, veamos el resultado de $C = AB$.  
-$c_{ij} = \sum_{k=1}^{n} a_{ik}*b_{kj}$  
+Tomando dos matrices diagonales superiores genéricas $A$ y $B \in \mathbb{R}^{nxn}$, veamos el resultado de $C = AB$.
+
+$$
+c_{ij} = \sum_{k=1}^{n} a_{ik}*b_{kj}
+$$
+
 Recordemos que, como ambas son matrices diagonales superiores, debajo de la diagonal, sus valores son 0. Por lo tanto, en $c_{ij}$, donde $i > j$, en la fila $i$ de $A$, tendremos exactamente $i - 1$ posiciones con valor 0, pues son aquellas posiciones donde $i > j$ y que, por definición, son 0. Además, en la columna $j$ de $B$, tendremos exactamente $n - j$ posiciones con valor 0, pues son las posiciones donde $i > j$ y, por definición, distintas de 0.  
-Luego, para $\sum_{k=1}^{i-1} a_{ik}*b_{kj}$, $a_{ik}$ siempre será 0, por lo que la sumatoria será 0.  
-Para $\sum_{k=i}^{n} a_{ik}*b_{kj}$, $b_{kj}$ siempre será 0, pues $k > j$, por comenzar siendo $i$, que es mayor a $j$, por lo que la sumatoria será 0.  
+Luego, para
+
+$$
+\sum_{k=1}^{i-1} a_{ik} b_{kj}
+$$
+
+$a_{ik}$ siempre será 0, por lo que la sumatoria será 0.  
+Para
+
+$$
+\sum_{k=i}^{n} a_{ik} b_{kj}
+$$
+
+$b_{kj}$ siempre será 0, pues $k > j$, por comenzar siendo $i$, que es mayor a $j$, por lo que la sumatoria será 0.  
 Por lo tanto, para todas las posiciones debajo de la diagonal, el valor resultante será 0.  
 Luego, $C$ es diagonal superior. Ídem para diagonal inferior, invirtiendo el sentido.
 
@@ -438,8 +474,11 @@ Para cada $f$, podemos encontrar la única $A$ tal que $f(x) = Ax$, donde defini
 
 ### Traza de una matriz
 
-La traza de una matriz es la suma de los elementos de la diagonal.  
-$tr(A) = \sum_{i=1}^n a_{ii}, A \in \mathbb{R}^{nxm}$
+La traza de una matriz es la suma de los elementos de la diagonal.
+
+$$
+tr(A) = \sum_{i=1}^n a_{ii}, A \in \mathbb{R}^{nxm}
+$$
 
 ### Núcleo
 
@@ -586,7 +625,9 @@ $$
 
 Entonces, tenemos que
 
-$\sum_{i=1}^{n} a_i b_i^t =$
+$$
+\sum_{i=1}^{n} a_i b_i^t =
+$$
 
 $$
 \begin{bmatrix}
