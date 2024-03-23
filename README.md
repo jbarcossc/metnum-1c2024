@@ -112,7 +112,7 @@ Sea $a \in \mathbb{R}$, $w = \alpha v$ con $w_{i} = \alpha v_{i}$ para $i = 1,..
 #### **Producto interno**
 
 Intuición: Multiplicación lugar a lugar y \suma de los resultados.  
-$<u, v> = \sum_{i=1}^{n} u_i v_i$
+$< u, v > = \sum_{i=1}^{n} u_i v_i$
 
 #### **Combinación lineal**
 
@@ -406,7 +406,7 @@ $$
 
 ### Independencia lineal
 
-$S = <v_1,...,v_k>$ es el conjunto de todas las combinaciones lineales de $v_1,...,v_k$. Le llamamos subespacio generado por $v_1,...,v_k$. A $v_1,...,v_k$ le llamamos generadores de $S$.
+$S = < v_1,...,v_k >$ es el conjunto de todas las combinaciones lineales de $v_1,...,v_k$. Le llamamos subespacio generado por $v_1,...,v_k$. A $v_1,...,v_k$ le llamamos generadores de $S$.
 
 ### Base
 
