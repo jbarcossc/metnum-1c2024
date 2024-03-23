@@ -49,18 +49,44 @@
       - [**Ejercicio 2**](#ejercicio-2-1)
 - [Clases prácticas](#clases-prácticas)
   - [Clase 1: 20 de marzo](#clase-1-20-de-marzo)
-    - [**Guía práctica 1 - Ejercicio 1**](#guía-práctica-1---ejercicio-1)
-      - [1) a.](#1-a)
-      - [1) b.](#1-b)
-      - [1) c.](#1-c)
-      - [1) d.](#1-d)
-    - [**Guía práctica 1 - Ejercicio 2**](#guía-práctica-1---ejercicio-2)
-      - [2) a.](#2-a)
-      - [2) b.](#2-b)
-      - [3) c.](#3-c)
+    - [Vectores canónicos](#vectores-canónicos)
+    - [Multiplicación de matrices por vectores canónicos](#multiplicación-de-matrices-por-vectores-canónicos)
+    - [Combinaciones lineales](#combinaciones-lineales)
+    - [Independencia lineal](#independencia-lineal)
+    - [Base](#base)
+      - [**Propiedad**](#propiedad)
+    - [Transformación lineal](#transformación-lineal)
+    - [Relación entre transformaciones lineales y matrices](#relación-entre-transformaciones-lineales-y-matrices)
+      - [**Proposición**](#proposición)
+    - [Traza de una matriz](#traza-de-una-matriz)
+    - [Núcleo](#núcleo)
+      - [**Hallar el núcleo de una transformación lineal**](#hallar-el-núcleo-de-una-transformación-lineal)
+    - [Imagen](#imagen)
+      - [**Hallar la imagen de una transformación lineal**](#hallar-la-imagen-de-una-transformación-lineal)
+    - [Teorema de la dimensión](#teorema-de-la-dimensión)
+- [Guías prácticas](#guías-prácticas)
+  - [Guía práctica 1](#guía-práctica-1)
+    - [Guía práctica 1 - Ejercicio 1](#guía-práctica-1---ejercicio-1)
+      - [**1) a.**](#1-a)
+      - [**1) b.**](#1-b)
+      - [**1) c.**](#1-c)
+      - [**1) d.**](#1-d)
+    - [Guía práctica 1 - Ejercicio 2](#guía-práctica-1---ejercicio-2)
+      - [**2) a.**](#2-a)
+      - [**2) b.**](#2-b)
+      - [**2) c.**](#2-c)
       - [3) ¿Qué otras particiones son posibles?](#3-qué-otras-particiones-son-posibles)
-    - [**Vectores canónicos**](#vectores-canónicos)
-    - [**Multiplicación de matrices por vectores canónicos**](#multiplicación-de-matrices-por-vectores-canónicos)
+    - [Guía práctica 1 - Ejercicio 3](#guía-práctica-1---ejercicio-3)
+      - [**3) a.**](#3-a)
+      - [**3) b.**](#3-b)
+    - [Guía práctica 1 - Ejercicio 4](#guía-práctica-1---ejercicio-4)
+      - [**4) a.**](#4-a)
+      - [**4) b.**](#4-b)
+    - [Guía práctica 1 - Ejercicio 5](#guía-práctica-1---ejercicio-5)
+    - [Práctica 1 - Ejercicio 20](#práctica-1---ejercicio-20)
+      - [**20) a.**](#20-a)
+      - [**20) b.**](#20-b)
+      - [**20) c.**](#20-c)
 
 # Clases teóricas
 
@@ -360,27 +386,133 @@ Luego, $b_{kj}a_{jj} = 0$, puesto que $a_{jj}$ es no nulo, $b_{kj}$ debe serlo.
 
 ## Clase 1: 20 de marzo
 
-### **Guía práctica 1 - Ejercicio 1**
+### Vectores canónicos
 
-#### 1) a.
+El vector canónico $e_i \in \mathbb{R}^{nx1}$, es aquel que posee el valor 0 en todas sus posiciones, excepto por la posición $i$, donde vale 1.
+
+### Multiplicación de matrices por vectores canónicos
+
+$Ae_i$ es igual a la columna $i$ de $A$.  
+$e_i^tA$ es igual a la fila $i$ de $A$.
+
+### Combinaciones lineales
+
+Si $C = \{v_1,...,v_k\}$ es un conjunto de vectores en $\mathbb{R}^n$  
+Se dice que $x \in \mathbb{R}^n$ es combinación lineal de $C$ si:
+
+$$
+\exist {\alpha}_1,...,{\alpha}_k \in \mathbb{R} / x = {\alpha}_1v_1 + ... + {\alpha}_kv_k
+$$
+
+### Independencia lineal
+
+$S = <v_1,...,v_k>$ es el conjunto de todas las combinaciones lineales de $v_1,...,v_k$. Le llamamos subespacio generado por $v_1,...,v_k$. A $v_1,...,v_k$ le llamamos generadores de $S$.
+
+### Base
+
+$B \subseteq \mathbb{V}$ es una base del espacio vectorial $\mathbb{V}$ si es un sistema de generadores linealmente independiente.
+
+- $<B> = \mathbb{V}$
+- $B$ es linealmente independiente
+
+#### **Propiedad**
+
+Todas las bases de un espacio vectorial tienen el mismo cardinal. Ese cardinal se va a llamar dimensión del espacio vectorial.
+
+### Transformación lineal
+
+$f: \mathbb{V} \to \mathbb{W}$ es una transformación lineal $\iff$
+
+- $f(v) + f(w) = f(v + w) ~~ \forall v,w \in \mathbb{V}$
+- $f(\lambda v) = \lambda f(v) ~~ \forall \lambda \in \mathbb{R}, \forall v \in \mathbb{V}$
+
+### Relación entre transformaciones lineales y matrices
+
+$A \in \mathbb{R}^{nxm}, x \in \mathbb{R}^m$  
+$f(x) = Ax, f: \mathbb{R}^m \to \mathbb{R}^n$  
+$f$ resulta una transformación lineal.
+
+#### **Proposición**
+
+Para cada $f$, podemos encontrar la única $A$ tal que $f(x) = Ax$, donde definimos $A = M(f)$.
+
+### Traza de una matriz
+
+La traza de una matriz es la suma de los elementos de la diagonal.  
+$tr(A) = \sum_{i=1}^n a_{ii}, A \in \mathbb{R}^{nxm}$
+
+### Núcleo
+
+$f(x) = Ax, f: \mathbb{R}^n \to \mathbb{R}^m$  
+$Nu(f) = Nu(A) = \{x \in \mathbb{R}^n / f(x) = 0\}$
+
+#### **Hallar el núcleo de una transformación lineal**
+
+Para hallar el núcleo de una transformación lineal, se puede armar el sistema de ecuaciones de $A = M(f)$ tal que el resultado es 0.  
+$Ax = 0$  
+Por ejemplo:
+
+$$
+\begin{bmatrix}
+  1 & 2 & 0 \\\
+  0 & 1 & 0
+\end{bmatrix}
+\begin{bmatrix}
+  x_1 \\\ x_2 \\\ x_3
+\end{bmatrix} =
+\begin{bmatrix}
+  0 \\\ 0
+\end{bmatrix}
+$$
+
+Luego, el núcleo será $x$ tal que:
+
+$$
+\begin{cases}
+1x_1 + 2x_2 + 0x_3 = 0 \\\
+0x_1 + 1x_2 + 0x_3 = 0
+\end{cases}
+$$
+
+### Imagen
+
+$f: \mathbb{R}^n \to \mathbb{R}^m, A = M(f)$  
+$Im(f) = \{ Ax / x \in \mathbb{R}^n\}$
+
+#### **Hallar la imagen de una transformación lineal**
+
+La imagen de una transformación lineal es equivalente al subespacio generado por las columnas de la matriz $A$ tal que $A = M(f)$.
+
+### Teorema de la dimensión
+
+Sea $f: \mathbb{V} \to \mathbb{W}$,  
+$dim(Nu(f)) + dim(Im(f)) = dim(\mathbb{V})$
+
+# Guías prácticas
+
+## Guía práctica 1
+
+### Guía práctica 1 - Ejercicio 1
+
+#### **1) a.**
 
 Falso. $A \in \mathbb{R}^{nxm}$ y $z \in \mathbb{R}^{nx1}$, por lo que no se pueden multiplicar.
 
-#### 1) b.
+#### **1) b.**
 
 Falso. El resultado de multiplicar $x \in \mathbb{R}^{nx1}$ y $z^t \in \mathbb{R}^{1xn}$ debe pertenecer a $\mathbb{R}^{nxn}$, no a $\mathbb{R}^{1x1}$.
 
-#### 1) c.
+#### **1) c.**
 
 Verdadero.
 
-#### 1) d.
+#### **1) d.**
 
 Verdadero.
 
-### **Guía práctica 1 - Ejercicio 2**
+### Guía práctica 1 - Ejercicio 2
 
-#### 2) a.
+#### **2) a.**
 
 $C_{11} = A_{11}B_{11} + A_{12}B_{21} = 1 + 9 = 10$ y $C_{11} \in \mathbb{R}^{1x1}$
 
@@ -396,11 +528,11 @@ $$
 C_{22} \in \mathbb{\mathbb{R}}^{2x2}
 $$
 
-#### 2) b.
+#### **2) b.**
 
 $C_{11} = A_{11}B_{11} + A_{12}B_{21}$ donde $A_{11} \in \mathbb{R}^{1x2}$ y $B_{11} \in \mathbb{R}^{1x1}$. Por lo tanto, no es posible.
 
-#### 3) c.
+#### **2) c.**
 
 $C_{11} = A_{11}B_{11} + A_{12}B_{21}$ donde $A_{12} \in \mathbb{R}^{2x2}$ y $B_{21} \in \mathbb{R}^{1x2}$. Por lo tanto, no es posible.
 
@@ -417,14 +549,176 @@ $$
 B_{11} = \begin{bmatrix} b_{11} & b_{12} \\\ b_{21} & b_{22} \end{bmatrix}, B_{12} = \begin{bmatrix} b_{13} \\\ b_{23} \end{bmatrix}, B_{21} = \begin{bmatrix} b_{31} & b_{32} \end{bmatrix}, B_{22} = \begin{bmatrix} b_{33} \end{bmatrix}
 $$
 
-### **Vectores canónicos**
+### Guía práctica 1 - Ejercicio 3
 
-El vector canónico $e_i \in \mathbb{R}^{nx1}$, es aquel que posee el valor 0 en todas sus posiciones, excepto por la posición $i$, donde vale 1.
+#### **3) a.**
 
-### **Multiplicación de matrices por vectores canónicos**
+Si $\forall x \in \mathbb{R}^n \Rightarrow Ax = Bx$, específicamente para $e_1,...,e_n$ vectores canónicos de $\mathbb{R}^n$, también vale.  
+Luego, $Ae_1 = Be_1,...,Ae_n=Be_n$. Pero, para cualquier matriz $C \in \mathbb{R}^{nxn}, Ce_i = \text{columna i de C}$.  
+Por lo tanto, $\forall c_i \text{ columna i de } A, \text{ vale que } c_i \text{ es igual a la columna i de } B$.  
+Por lo tanto, si todas sus columnas son iguales, son la misma matriz.
 
-$Ae_i$ es igual a la columna $i$ de $A$.  
-$e_i^tA$ es igual a la fila $i$ de $A$.
+#### **3) b.**
+
+Miremos $a_1b_1^t$.
+
+$$
+a_1b_1^t =
+\begin{bmatrix}
+  a_{11}b_{11} & a_{11}b_{12} & ... & a_{11}b_{1n} \\\
+  a_{21}b_{11} & a_{21}b_{12} & ... & a_{21}b_{1n} \\\
+  : & : & : & : \\\
+  a:{n1}b_{11} & ... & ... & a_{n1}b_{1n}
+\end{bmatrix}
+$$
+
+Ahora veamos para el caso general
+
+$$
+a_ib_i^t =
+\begin{bmatrix}
+  a_{1i}b_{i1} & a_{1i}b_{i2} & ... & a_{1i}b_{in} \\\
+  a_{2i}b_{i1} & a_{2i}b_{i2} & ... & a_{2i}b_{in} \\\
+  : & : & : & : \\\
+  a:{ni}b_{i1} & ... & ... & a_{ni}b_{in}
+\end{bmatrix}
+$$
+
+Entonces, tenemos que
+
+$$
+\sum_{i=1}^{n} a_ib_i^t =
+\begin{bmatrix}
+  a_{11}b_{11} & a_{11}b_{12} & ... & a_{11}b_{1n} \\\
+  a_{21}b_{11} & a_{21}b_{12} & ... & a_{21}b_{1n} \\\
+  : & : & : & : \\\
+  a:{n1}b_{11} & ... & ... & a_{n1}b_{1n}
+\end{bmatrix}
++ ... +
+\begin{bmatrix}
+  a_{1i}b_{i1} & a_{1i}b_{i2} & ... & a_{1i}b_{in} \\\
+  a_{2i}b_{i1} & a_{2i}b_{i2} & ... & a_{2i}b_{in} \\\
+  : & : & : & : \\\
+  a:{ni}b_{i1} & ... & ... & a_{ni}b_{in}
+\end{bmatrix}
++ \\ ...+
+\begin{bmatrix}
+  a_{1n}b_{n1} & a_{1n}b_{n2} & ... & a_{1n}b_{nn} \\\
+  a_{2n}b_{n1} & a_{2n}b_{n2} & ... & a_{2n}b_{nn} \\\
+  : & : & : & : \\\
+  a:{nn}b_{n1} & ... & ... & a_{nn}b_{nn}
+\end{bmatrix}
+$$
+
+Por ende, si nos enfocamos en cada posición de manera individual,
+
+$$
+AB_{ij} = a_{i1}b_{1j} + ... + a_{ii}b_{ij} + ... + a_{in}b_{nj}
+$$
+
+Que es exactamente lo mismo que el resultado tradicional de $AB_{ij}$.
+
+### Guía práctica 1 - Ejercicio 4
+
+#### **4) a.**
+
+$$
+n = 2,
+A = \begin{bmatrix}
+  1 & 0 \\\
+  1 & 0
+\end{bmatrix},
+B = \begin{bmatrix}
+  1 & 0 \\\
+  0 & 0
+\end{bmatrix}
+$$
+
+$$
+AB = \begin{bmatrix}
+  1 & 0 \\\
+  1 & 0
+\end{bmatrix}
+$$
+
+$$
+BA = \begin{bmatrix}
+  1 & 0 \\\
+  0 & 0
+\end{bmatrix}
+$$
+
+#### **4) b.**
+
+$$
+n = 3,
+A = \begin{bmatrix}
+  8 & 0 & 0 \\\
+  0 & 9 & 0 \\\
+  0 & 0 & 5
+\end{bmatrix},
+B = \begin{bmatrix}
+  1 & 0 & 0 \\\
+  0 & 0 & 0 \\\
+  0 & 0 & 0
+\end{bmatrix}
+$$
+
+$$
+tr(A)tr(b) = 22*1 = 22
+$$
+
+$$
+AB = \begin{bmatrix}
+  8 & 0 & 0 \\\
+  0 & 0 & 0 \\\
+  0 & 0 & 0
+\end{bmatrix}
+$$
+
+$$
+tr(AB) = 8 \neq 22 = tr(A)*tr(B)
+$$
+
+### Guía práctica 1 - Ejercicio 5
+
+Falso.
+
+$$
+A = \begin{bmatrix}
+  1 & 0 \\\
+  0 & 0
+\end{bmatrix},
+B = \begin{bmatrix}
+  0 & 0 \\\
+  0 & 1
+\end{bmatrix}
+$$
+
+$$
+AB = 0
+$$
+
+### Práctica 1 - Ejercicio 20
+
+#### **20) a.**
+
+$\forall x \in Nu(B) \Rightarrow Bx = 0$  
+Luego, $ABx = A(Bx) = A*0 = 0$. Por lo tanto, $x \in Nu(AB)$.
+
+#### **20) b.**
+
+$\forall x \in Im(AB) \Rightarrow \exist v / ABv = x$.  
+Luego, $\forall x \Rightarrow \exist w = Bv / A(Bv) = x = Aw$.  
+Entonces, $x \in Im(A)$.
+
+#### **20) c.**
+
+Si $AB = 0$, entonces $\forall x \Rightarrow ABx = 0x = 0$.  
+Sin embargo, el producto es conmutativo, por lo tanto $\forall x ~ ABx = A(Bx) = 0$.  
+Pero $Im(B) = \{v / Bx = v\}$.  
+Luego, $\forall v \in Im(B) \Rightarrow Av = 0$.  
+Por lo tanto, $Im(B) \subseteq Nu(A)$
 
 [^1]: _Extensión de VSCode sugerida para editar y previsualizar: [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-n-one). Con Ctrl+K V abre preview._
 [^2]: _Para visualizar las notas al pie en VSCode: [Markdown Footnotes](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-footnotes)_
