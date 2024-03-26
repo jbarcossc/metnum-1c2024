@@ -47,6 +47,22 @@
     - [Tarea resuelta](#tarea-resuelta)
       - [**Ejercicio 1**](#ejercicio-1-1)
       - [**Ejercicio 2**](#ejercicio-2-1)
+  - [Clase 2: 25 de marzo](#clase-2-25-de-marzo)
+    - [Sistemas de ecuaciones lineales](#sistemas-de-ecuaciones-lineales)
+      - [**Equivalencia de sistemas de ecuaciones**](#equivalencia-de-sistemas-de-ecuaciones)
+    - [Sistemas de ecuaciones lineales fáciles](#sistemas-de-ecuaciones-lineales-fáciles)
+      - [**Matriz diagonal**](#matriz-diagonal-1)
+      - [**Matriz triangular superior**](#matriz-triangular-superior-1)
+    - [Método de Eliminación Gaussiana](#método-de-eliminación-gaussiana)
+      - [**Algoritmo**](#algoritmo)
+      - [**Esquema básico**](#esquema-básico)
+    - [Estrategias de pivoteo](#estrategias-de-pivoteo)
+      - [**Pivoteo parcial**](#pivoteo-parcial)
+      - [**Pivoteo completo**](#pivoteo-completo)
+    - [Factorización LU](#factorización-lu)
+      - [**Beneficio algorítmico**](#beneficio-algorítmico)
+      - [**Procedimiento**](#procedimiento)
+      - [**Propiedades**](#propiedades)
 - [Clases prácticas](#clases-prácticas)
   - [Clase 1: 20 de marzo](#clase-1-20-de-marzo)
     - [Vectores canónicos](#vectores-canónicos)
@@ -209,12 +225,14 @@ $D_{ii} = k_i, D_{ij} = 0$ si $i \neq j$
 Intuición: De la diagonal para abajo es todo ceros.  
 $U \in \mathbb{R}^{nxn}$ con $u_{ij} = 0$ si $i > j$  
 Producto de triangulares superiores es triangular superior.
+El determinante de una matriz triangular es el producto de los elementos de su diagonal.
 
 #### **Matriz triangular inferior**
 
 Intuición: De la diagonal para arriba es todo ceros.  
 $L \in \mathbb{R}^{nxn}$ con $l_{ij} = 0$ si $i < j$  
 Producto de triangulares inferiores es triangular inferior.
+El determinante de una matriz triangular es el producto de los elementos de su diagonal.
 
 #### **Rango de una matriz**
 
@@ -224,7 +242,7 @@ Cantidad máxima de columnas o filas linealmente independiente.
 
 Definida si $m = n$. $A^{-1} \in \mathbb{R}^{nxn}$.
 $AA^{-1} = A^{-1}A = I$  
-$A$ inversible $\iff rang(A) = n \iff det(A) \neq 0$  
+$A$ inversible $\iff rang(A) = n \iff det(A) \neq 0 \text{ (matriz no singular)}$  
 La inversa (si existe) de una matriz diagonal es matriz diagonal.  
 La inversa (si existe) de una matriz triangular inferior es matriz triangular inferior.  
 La inversa (si existe) de una matriz triangular superior es matriz triangular superior.
@@ -417,6 +435,182 @@ Y por triangularidad de A
 $a_{j+1j} = ... = a_{nj} = 0, k > j$
 
 Luego, $b_{kj}a_{jj} = 0$, puesto que $a_{jj}$ es no nulo, $b_{kj}$ debe serlo.
+
+## Clase 2: 25 de marzo
+
+### Sistemas de ecuaciones lineales
+$A \in \mathbb{R}^{nxn}, b \in \mathbb{R}^n$. Se busca $x \in \mathbb{R}^n$ tal que $Ax = b$.  
+Si $b \notin Im(A)$, el sistema no tiene solución.  
+Si $b \in Im(A)$, puede existir una única solución o infinitas.
+
+#### **Equivalencia de sistemas de ecuaciones**
+Los sistemas $Ax = b$ y $Bx = d$ son equivalentes si tienen el mismo conjunto de soluciones.  
+Dada una matriz $A$, sumar, restar, permutar o multiplicar filas (o columnas) por coeficientes no nulos, la matriz resultante es equivalente.  
+En el caso de la permutación de columnas, la solución también queda permutada en relación a las permutaciones realizadas.
+
+### Sistemas de ecuaciones lineales fáciles
+
+#### **Matriz diagonal**
+Sea $D \in \mathbb{R}^{nxn}$ matriz diagonal, $b \in \mathbb{R}^n$  
+Si $d_{ii} \neq 0$ para todo $i = 1,...,n$, existe solución y es única.  
+$$
+x_i = b_1 / d_{ii} \text{ para todo } i = 1,...,n
+$$  
+$O(n)$ operaciones elementales.  
+Si existe algún $d_{ii} = 0$, el sistema puede no tener solución o tener infinitas soluciones.  
+Depende de si $b_i$ es igual o distinto de $0$.
+
+#### **Matriz triangular superior**
+Sea $U \in \mathbb{R}^{nxn}$ matriz diagonal superior, $b \in \mathbb{R}^n$  
+Si $u_{ii} \neq 0$ para todo $i = 1,...,n$, existe solución y es única.
+$$
+x_n = b_n / u_{nn}
+$$
+$$
+x_{n-1} = (b_{n-1} - u_{n-1n} x_n) / u_{n-1 n-1}
+$$
+$$
+...
+$$
+$$
+x_i = (b_i - \sum_{j = i+1}^{n} u_{ij} x_j ) / u_{ii}
+$$
+$$
+...
+$$
+$$
+x_1 = (b_1 - \sum_{j = 2}^{n} u_{1j} x_j) / u_{11}
+$$
+
+Backward sustitution, $O(n^2)$ operaciones elementales.
+
+$U \in \mathbb{R}^{nxn}$ matriz triangular superior, $b \in \mathbb{R}^n$  
+Si existe algún $d_{ii} = 0$, el sistema puede no tener solución o tener infinitas soluciones.  
+Para matrices triangulares inferiores valen las mismas propiedades
+
+### Método de Eliminación Gaussiana
+El objetivo es construir un sistema equivalente cuya matriz asociada sea fácil.  
+Para hacer esto, se suman, restan, permutan o multiplican por coeficientes no nulos sus filas (o columnas).
+
+#### **Algoritmo**
+$$
+\begin{bmatrix}
+a_{11}^0 & a_{12}^0 & ... & a_{1n}^0 & | & b_1^0 \\\
+: & : & : & : & | & : \\\
+a_{i1}^0 & a_{i2}^0 & ... & a_{in}^0 & | & b_i^0 \\\
+: & : & : & : & | & : \\\
+a_{n1}^0 & a_{n2}^0 & ... & a_{nn}^0 & | & b_n^0
+\end{bmatrix}
+$$
+$$
+\to 
+F_2 - (a_{21}^0 / a_{11}^0) F_1 \\
+... \\
+F_i - (a_{i1}^0 / a_{11}^0) F_1 \\
+... \\
+F_n - (a_{n1}^0 / a_{11}^0) F_1 \\
+$$
+$$
+\begin{bmatrix}
+a_{11}^1 & a_{12}^1 & ... & a_{1n}^1 & | & b_1^1 \\\
+: & : & : & : & | & : \\\
+0 & a_{i2}^1 & ... & a_{in}^1 & | & b_i^1 \\\
+: & : & : & : & | & : \\\
+0 & a_{n2}^1 & ... & a_{nn}^1 & | & b_n^1
+\end{bmatrix}
+$$
+
+Se ejecuta de manera similar para todas las filas, hasta tener 
+$$
+\begin{bmatrix}
+a_{11}^n & a_{12}^n & ... & a_{1 n-1}^n & a_{1n}^n & | & b_1^n \\\
+: & : & : & : & : & | & : \\\
+0 & 0 & ... & a_{i n-1}^n & a_{in}^n & | & b_i^n \\\
+: & : & : & : & : & | & : \\\
+0 & 0 & ... & 0 & a_{nn}^n & | & b_n^n
+\end{bmatrix}
+$$
+
+#### **Esquema básico**
+```
+for (i = 1) to (n - 1):
+  for (j = i + 1) to (n):
+    M[j][i] = A^{i-1}[j][i] / A^{i-1}[i][i]
+    for (k = i) to (n + 1):
+      A^{i}[j][k] = A^{i-1}[j][k] - M[j][i] * A^{i-1}[i][k]
+```
+Condición necesaria: $a_{ii}^{i-1} \neq 0$ para todo $i = 1,...,n-1$  
+El coste algorítmico es $O(n^3)$.
+
+### Estrategias de pivoteo
+
+#### **Pivoteo parcial**
+Entre las filas $i$ a $n$, utilizar como fila pivote aquella con mayor $|a_{ji}^{i - 1}|$. Realizar la permutación necesaria entre las filas para ubicar en el lugar $ii$ dicho coeficiente.
+
+#### **Pivoteo completo**
+Entre las filas $i$ a $n$ y las columnas $i$ a $n$, calcular el mayor $|a_{kl}^{i - 1}|$. Realizar la permutación necesaria entre las filas y las columnas para ubicar en el lugar $ii$ dicho coeficiente.
+
+### Factorización LU
+El objetivo es factorizar una matriz como el producto de una matriz diagonal inferior y otra diagonal superior.  
+$Ax = b = LUx$  
+
+#### **Beneficio algorítmico**
+Una vez teniendo la factorización LU, para cualquier sistema de ecuaciones donde se use $A$, podemos hacer  
+$Ly = b, Ux = y$  
+Esta resolución tiene complejidad $O(n^2)$.
+
+#### **Procedimiento**
+Sea $A \in \mathbb{R}^{nxn}$. Supongamos que aplicamos eliminación Gaussiana y se verifica que $a_{ii}^{i-1} \neq 0$ para todo $i = 1,...,n-1$. Esta matriz triangular superior, será $U$.  
+Si expresamos matricialmente el proceso de eliminación Gaussiana realizado para obtener $U$, con  
+$$
+M^i = 
+\begin{bmatrix}
+1 & ... & 0 & 0 & ... & 0 \\\
+: & : & : & : & : & : \\\
+0 & ... & 1 & 0 & ... & 0 \\\
+0 & ... & -m_{i+1 i} & 1 & ... & 0 \\\
+: & : & : & : & : & : \\\
+0 & ... & -m_{ni} & 0 & ... & 1
+\end{bmatrix}
+$$
+Todas las $M_i$ son triangular inferior. El producto de triangulares inferiores es triangular inferior e inversa de triangular inferior es triangular inferior.  
+Por lo tanto, $L$ será la inversa del producto de todas las matrices $M$.  
+$$
+M^1 M^2 ... M^{n-1} A = U
+$$
+Llamo $T$ a $M^1 M^2 ... M^{n-1}$
+$$
+\Rightarrow T A = U
+$$
+$$
+\Rightarrow T^{-1} T A = T^{-1} U
+$$
+$$
+\Rightarrow I A = T^{-1} U
+$$
+$$
+\Rightarrow A = T^{-1} U
+$$
+Luego, $T^{-1}$ es $L$.  
+Sabemos que $T$ es inversible ya que $det(T) = 1$ (producto de la diagonal).  
+Más aún, $L = I + m_{1}^{t} e_1 + ... + m_{n-1}^{t} e_{n-1}$. Esto debido a que 
+$$
+(M^1 M^2 ... M^{n-1})^{-1} = (M^1)^{-1} (M^2)^{-1} ... (M^{n-1})^{-1}
+$$
+
+Y sabemos que $M^i = I - m_i^t e_i$  
+Luego, $(M^i)^{-1} = I + m_i^t e_i$, por lo que tenemos (haciendo distributiva de las multiplicaciones)
+$$
+I + m_{1}^{t} e_1 + ... + m_{n-1}^{t} e_{n-1}
+$$
+
+#### **Propiedades**
+- No toda matriz inversible tiene factorización LU. Por ejemplo, $\begin{bmatrix} 0 & 1 \\\ 1 & 0 \end{bmatrix}$
+- Si $A \in \mathbb{R}^{nxn}$ es no singular y existe factorización LU, entonces es única.
+- Si $A \in \mathbb{R}^{nxn}$ tiene todas sus submatrices principales no singulares, entonces tiene factorización LU.
+- Si $A \in \mathbb{R}^{nxn}$ es estrictamente diagonal dominante, entonces tiene factorización LU.
+
+
 
 # Clases prácticas
 
