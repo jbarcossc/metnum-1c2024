@@ -63,6 +63,17 @@
       - [**Beneficio algorítmico**](#beneficio-algorítmico)
       - [**Procedimiento**](#procedimiento)
       - [**Propiedades**](#propiedades)
+  - [Clase 3: 27 de marzo](#clase-3-27-de-marzo)
+    - [Submatrices principales](#submatrices-principales)
+    - [Factorización PLU](#factorización-plu)
+    - [Normas vectoriales](#normas-vectoriales)
+    - [Normas matriciales](#normas-matriciales)
+      - [**Normas matriciales inducidas**](#normas-matriciales-inducidas)
+    - [Número de condición](#número-de-condición)
+      - [**Cota del error**](#cota-del-error)
+    - [Matriz simétrica definida positiva](#matriz-simétrica-definida-positiva)
+      - [**Propiedades**](#propiedades-1)
+      - [**Factorización de Cholesky**](#factorización-de-cholesky)
 - [Clases prácticas](#clases-prácticas)
   - [Clase 1: 20 de marzo](#clase-1-20-de-marzo)
     - [Vectores canónicos](#vectores-canónicos)
@@ -610,7 +621,111 @@ $$
 - Si $A \in \mathbb{R}^{nxn}$ tiene todas sus submatrices principales no singulares, entonces tiene factorización LU.
 - Si $A \in \mathbb{R}^{nxn}$ es estrictamente diagonal dominante, entonces tiene factorización LU.
 
+## Clase 3: 27 de marzo
 
+### Submatrices principales
+Dada $A \in \mathbb{R}^{nxn}$, la submatriz principal $i$ es la submatriz que contiene la intersección entre las primeras $i$ filas y columnas.
+
+### Factorización PLU
+La eliminación Gaussiana puede continuar mediante permutación de filas. Se obtiene factorización LU de la matriz original permutada.  
+Reflejando las permutaciones en una matriz de permutación $P$, tendremos que $PA = LU$
+
+### Normas vectoriales
+Sea $f: \mathbb{R}^{n} \to \mathbb{R}$, es una norma si:
+- $f(x) > 0$ si $x \neq 0$
+- $f(x) = 0$ sii $x = 0$
+- $f(\alpha x) = |\alpha|f(x)$ para todo $\alpha \in \mathbb{R}$
+- $f(x + y) \leq f(x) + f(y)$ 
+
+/* Tipos de normas vectoriales */
+
+### Normas matriciales
+Sea $F: \mathbb{R}^{mxn} \to \mathbb{R}$, es una norma si:
+- $F(A) > 0$ si $A \neq 0$
+- $F(A) = 0$ sii $A = 0$
+- $F(\alpha A) = |\alpha| f(A)$ para todo $\alpha \in \mathbb{R}$
+- $F(A + B) \leq F(A) + F(B)$
+- $F(AB) \leq F(A) F(B)$ (propiedad adicional, son normas submultiplicativas, $m = n$)
+
+/* Tipos de normas matriciales*/
+
+#### **Normas matriciales inducidas**
+Sean $f_1$ una norma definida en $\mathbb{R}^m$ y $f_2$ una norma definida en $\mathbb{R}^n$  
+$F: \mathbb{R}^{mxn} \to \mathbb{R}$ es una norma inducida si:
+$$
+F(A) = max_{x \neq 0} \frac{f_1(Ax)}{f_2(x)}
+$$
+$$
+F(A) = max_{x:f_2(x) = 1} f_1(Ax)
+$$
+
+/* Fórmulas de las normas matriciales inducidas */
+
+### Número de condición
+Sea $A \in \mathbb{R}^{nxn}$ matriz no singular y $||.||$ una norma matricial. Se define número de condición de $A$ como:
+$$
+\kappa(A) = ||A|| ||A^{-1}||
+$$
+Si $||.||$ es una norma inducida, $\kappa(I) = 1$  
+Si $||.||$ es una norma sub-multiplicativa $\kappa(A) \geq 1$
+
+#### **Cota del error**
+Sea $A \in \mathbb{R}^{nxn}$ matriz no singular y $||.||$ una norma matricial inducida. Sea $\~x$ solución aproximada del sistema $Ax = b$ con $b \neq 0$ y $r = Ax - A~x = b - \~b$
+$$
+\frac{||x - \~x||}{||x||} \leq ||A||||A^{-1}|| \frac{||b - \~b||}{||b||}
+$$
+
+### Matriz simétrica definida positiva
+$A \in \mathbb{R}^{nxn}$
+- $A = A^t$ (simétrica)
+- $x^t Ax > 0$ para todo $x \in \mathbb{R}^n$, $x \neq 0$ (definida positiva)
+
+
+#### **Propiedades**
+- Es no singular (inversible).
+- $a_{ii} > 0$ para todo $1 = 1,...,n$.
+- Toda submatriz principal es sdp (por lo tanto no singular).
+- Tiene factorización LU.
+- $A$ sdp $\iff B^t AB$ es sdp con $B$ no singular.
+- La submatriz conformada por las filas 2 a n y columnas 2 a n después del primer paso de la eliminación gaussiana es sdp.
+- Se puede realizar el método de eliminación gaussiana sin necesidad de permutar filas
+
+#### **Factorización de Cholesky**
+$A \in \mathbb{R}^{nxn}$, $A$ sdp
+$$
+A = LU
+$$
+$$
+A^t = (LU)^t = U^t L^t
+$$
+$$
+A = A^t \text{ entonces } LU = U^t L^t
+$$
+Como $L(L^t)$ es triangular inferior (superior) con 1s en la diagonal, es inversible.
+$$
+LU = U^t L^t \Rightarrow U(L^t)^{-1} = L^{-1} U^t
+$$
+$$
+U(L^t)^{-1} = L^{-1} U^t = D \text{ matriz diagonal}
+$$
+$$
+U = D L^t
+$$
+$A \in \mathbb{R}^{nxn}$, $A$ sdp
+$$
+A = LU = LD L^t
+$$
+Sea $x \neq 0$ tal que $L^t x = e_i$
+$$
+0 < x^t Ax = x^t LDL^t x = e_i^t D e_i = d_{ii}
+D = \sqrt{D} \sqrt{D}
+$$
+$$
+A = L \sqrt{D} \sqrt{D} L^t = \~L \~L^t
+$$
+$$
+A = \~L \~L^t \text{ Factorización de Cholesky}
+$$
 
 # Clases prácticas
 
