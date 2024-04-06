@@ -728,6 +728,7 @@ A = \~L \~L^t \text{ Factorización de Cholesky}
 $$
 
 # Clases prácticas
+Los trabajos prácticos están en sus correspondientes branches
 
 ## Clase 1: 20 de marzo
 
