@@ -1,4 +1,5 @@
 import numpy as np
+from auxiliary import *
 
 class Matrix:
   # @param data: list[list](float)
@@ -54,14 +55,17 @@ class Matrix:
   
   # @type Matrix
   # @param partial: bool, defines if Gaussian Elimination uses partial pivoting
+  # @param b: list(float), independent vector
   # @return Gaussian elimination matrix
-  def gaussianElimination(self, partial=True):
+  def gaussianElimination(self, b, partial=True):
     result = Matrix(self.matrix)
+    resVector = np.array(b, dtype = float)
     for i in range(0,self.dim[0]-1):
       # Pivot handling
       if partial:
         maxValue = result.biggestInColumnFrom(i,i)
         result.swapRows(i,maxValue)
+        resVector = vectorSwap(resVector,i,maxValue)
         
       # Error handling
       if(result.at(i,i) == 0):
@@ -73,8 +77,9 @@ class Matrix:
         for j in range(i+1, self.dim[0]):
           multiplier = result.at(j,i) / result.at(i,i)
           result.substractRow(j, i, multiplier)
+          resVector = vectorSubstract(resVector,j,i,multiplier)
           
-    return result
+    return [result,resVector]
   
   def __str__(self):
     return str(self.matrix)
