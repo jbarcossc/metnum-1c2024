@@ -6,7 +6,7 @@ class Matrix:
   # data is expected to be homogeneus shape
   def __init__(self, data):
     self.matrix = np.array(data, dtype=float)
-    self.dim = np.shape(self.matrix)
+    self.dim = [len(self.matrix),len(self.matrix[0])]
     self.L = None
     self.U = None
   
@@ -40,8 +40,8 @@ class Matrix:
   # @param offset: int
   # @return Row index greater or equal than offset with highest absolute value in specific column
   def biggestInColumnFrom(self, columnIndex, offset):
-    # sum offset to retrieve matrix's original index
-    return np.argmax(np.abs(self.matrix[offset:,columnIndex])) + offset
+    # start from offset to avoid incorrect swaps
+    return max(range(offset,len(self.matrix[:,columnIndex])), key=lambda x : abs(self.matrix[:,columnIndex][x]))
   
   # @type tuple(int,int)
   # @return Matrix dimensions
