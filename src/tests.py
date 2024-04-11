@@ -1,5 +1,6 @@
 import unittest
 from matrix import Matrix
+import numpy as np
 
 class TestMatrix(unittest.TestCase):
 
@@ -55,6 +56,28 @@ class TestMatrix(unittest.TestCase):
         matrix = Matrix(data)
         value = matrix.at(1, 0)
         self.assertEqual(value, 3)
+        
+    def test_equal(self):
+        data = [[1, 2], [3, 4]]
+        matrix = Matrix(data)
+        self.assertEqual(matrix.equal(data), True)
+        
+    def test_gaussian_elimination(self):
+        data = [[4,-2,2],[-2,1,1],[2,2,2]]
+        matrix = Matrix(data)
+        b = [5,2,1]
+        matrixValue, bValue = matrix.gaussianElimination(b)
+        expectedB = np.array([5,-1.5,4.5], dtype = float)
+        expectedMatrix = [[4,-2,2],[0,3,1],[0,0,2]]
+        self.assertEqual(np.array_equal(bValue, expectedB), True)
+        self.assertEqual(matrixValue.equal(expectedMatrix), True)
+
+    def test_solve(self):
+        data = [[4,-2,2],[-2,1,1],[2,2,2]]
+        matrix = Matrix(data)
+        b = [5,2,1]
+        value = matrix.solve(b)
+        self.assertEqual(value, [-0.5,-1.25,2.25])
 
     def test_str(self):
         data = [[1, 2], [3, 4]]

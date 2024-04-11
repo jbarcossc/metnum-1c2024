@@ -53,6 +53,15 @@ class Matrix:
   def at(self, row, column):
     return self.matrix[row][column]
   
+  # @type bool
+  # @return Matrix equality
+  def equal(self, data):
+    result = True
+    for i in range(0, self.shape()[0] - 1):
+      for j in range(0, self.shape()[1] - 1):
+        result = result or self.at(i,j) == data[i][j]
+    return result
+  
   # @type Matrix
   # @param partial: bool, defines if Gaussian Elimination uses partial pivoting
   # @param b: list(float), independent vector
@@ -80,6 +89,20 @@ class Matrix:
           resVector = vectorSubstract(resVector,j,i,multiplier)
           
     return [result,resVector]
+  
+  # @type ndarray
+  # @param b: list(float), independent vector
+  # @return System solution
+  def solve(self, b):
+    GEmatrix, GEb = self.gaussianElimination(b)
+    n = len(b)
+    res = [0]*n
+    for i in range(n - 1, -1, -1):
+      sum = 0
+      for j in range(i + 1, n):
+        sum += GEmatrix.at(i, j) * res[j]
+      res[i] = (GEb[i] - sum) / GEmatrix.at(i, i)
+    return res
   
   def __str__(self):
     return str(self.matrix)
