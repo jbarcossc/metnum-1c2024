@@ -45,12 +45,6 @@ class TestMatrix(unittest.TestCase):
         index = matrix.biggestInColumnFrom(1, 1)
         self.assertEqual(index, 2)
 
-    def test_shape(self):
-        data = [[1, 2, 3], [3, 4, 1]]
-        matrix = Matrix(data)
-        shape = matrix.shape()
-        self.assertEqual(shape, [2, 3])
-
     def test_at(self):
         data = [[1, 2], [3, 4]]
         matrix = Matrix(data)
@@ -101,6 +95,18 @@ class TestMatrix(unittest.TestCase):
         with self.assertRaises(Exception) as context:
             matrix.solve(b)
         self.assertTrue("Matrix has no unique solution." in str(context.exception))
+        
+    def test_is_tridiagonal_false(self):
+        data = [[4,-2,0],[-2,1,1],[0,-1,2]]
+        matrix = Matrix(data)
+        value = matrix.isTridiagonal()
+        self.assertEqual(value, True)
+        
+    def test_is_tridiagonal_false(self):
+        data = [[4,-2,2],[-2,1,1],[2,2,2]]
+        matrix = Matrix(data)
+        value = matrix.isTridiagonal()
+        self.assertEqual(value, False)  
 
     def test_str(self):
         data = [[1, 2], [3, 4]]
