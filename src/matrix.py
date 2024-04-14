@@ -63,10 +63,11 @@ class Matrix:
     return result
   
   # @type Matrix
-  # @param partial: bool, defines if Gaussian Elimination uses partial pivoting
   # @param b: list(float), independent vector
+  # @param partial: bool, defines if Gaussian Elimination uses partial pivoting
+  # @param e: float, near-zero division warning margin
   # @return Gaussian elimination matrix
-  def gaussianElimination(self, b, partial=True):
+  def gaussianElimination(self, b, partial=True, e=0.1):
     result = Matrix(self.matrix)
     resVector = np.array(b, dtype = float)
     for i in range(0,self.dim[0]-1):
@@ -78,12 +79,16 @@ class Matrix:
         
       # Error handling
       if(result.at(i,i) == 0):
-        if partial:
-          raise Exception(f"Matrix has no unique solution.")
-        else:
+        if partial: 
+          raise Exception("Matrix has no unique solution.")
+        else: 
           raise Exception(f"Value at position [{i},{i}] ended up being 0. No further steps without pivoting.")
       else:
         for j in range(i+1, self.dim[0]):
+          # Dividing near zero warning
+          if(abs(result.at(i,i)) < e): 
+            raise Warning(f"Dividing with values near zero at [{i},{i}].")
+          
           multiplier = result.at(j,i) / result.at(i,i)
           result.substractRow(j, i, multiplier)
           resVector = vectorSubstract(resVector,j,i,multiplier)
@@ -92,9 +97,10 @@ class Matrix:
   
   # @type ndarray
   # @param b: list(float), independent vector
+  # @param partial: bool, defines if Gaussian Elimination uses partial pivoting
   # @return System solution
-  def solve(self, b):
-    GEmatrix, GEb = self.gaussianElimination(b)
+  def solve(self, b, partial=True):
+    GEmatrix, GEb = self.gaussianElimination(b, partial=partial)
     n = len(b)
     res = [0]*n
     for i in range(n - 1, -1, -1):

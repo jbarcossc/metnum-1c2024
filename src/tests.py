@@ -72,12 +72,35 @@ class TestMatrix(unittest.TestCase):
         self.assertEqual(np.array_equal(bValue, expectedB), True)
         self.assertEqual(matrixValue.equal(expectedMatrix), True)
 
-    def test_solve(self):
+    def test_solve_no_pivot(self):
+        data = [[2,4,1],[4,5,2],[3,1,0]]
+        matrix = Matrix(data)
+        b = [2,1,4]
+        value = matrix.solve(b)
+        self.assertEqual(value, [1,1,-4])
+        
+    def test_solve_no_pivot_error(self):
+        data = [[1,0,0],[0,0,1],[0,1,0]]
+        matrix = Matrix(data)
+        b = [2,1,0]
+        with self.assertRaises(Exception) as context:
+            matrix.solve(b, partial=False)
+        self.assertTrue(f"Value at position [1,1] ended up being 0. No further steps without pivoting." in str(context.exception))
+
+    def test_solve_partial_pivoting(self):
         data = [[4,-2,2],[-2,1,1],[2,2,2]]
         matrix = Matrix(data)
         b = [5,2,1]
         value = matrix.solve(b)
         self.assertEqual(value, [-0.5,-1.25,2.25])
+        
+    def test_solve_partial_pivoting_error(self):
+        data = [[4,-2,2],[-2,1,1],[2,-1,2]]
+        matrix = Matrix(data)
+        b = [2,1,4]
+        with self.assertRaises(Exception) as context:
+            matrix.solve(b)
+        self.assertTrue("Matrix has no unique solution." in str(context.exception))
 
     def test_str(self):
         data = [[1, 2], [3, 4]]
