@@ -124,52 +124,5 @@ class Matrix:
           return False
     return True
   
-  # @type [Matrix, list(float)]
-  # @param d: list(float), independent vector
-  # @return Thomas Algorithm preprocessed matrix and vector
-  # For more info read: https://en.wikipedia.org/wiki/Tridiagonal_matrix_algorithm
-  def tridiagonalPreprocess(self, d):
-    processedMatrix = self
-    processedD = d
-    
-    # Set first value
-    processedMatrix.setVal(0, 1, self.at(0,1) / self.at(0,0))
-    processedD[0] = d[0] / self.at(0,0)
-    
-    # Set rest of values
-    for i in range(1, self.n - 1):
-      b_i = self.at(i,i)
-      c_i = self.at(i,i+1)
-      d_i = d[i]
-      prev_c_i = processedMatrix.at(i-1,i)
-      prev_d_i = processedD[i-1]
-      a_i = self.at(i-1,i+1)
-      # New values
-      newC = c_i / (b_i - prev_c_i*a_i)
-      newD = (d_i - prev_d_i*a_i) / (b_i - prev_c_i*a_i)
-      # Set new values
-      processedMatrix.setVal(i, i+1, newC)
-      processedD[i] = newD
-        
-    return processedMatrix, processedD
-    
-  
-  # @type ndarray
-  # @param d: list(float), independent vector
-  # @return System solution
-  def solveTridiagonal(self, d):
-    # Verify matrix is tridiagonal
-    if not self.isTridiagonal():
-      raise Exception("Matrix is not tridiagonal.")
-    
-    pMatrix, pD = self.tridiagonalPreprocess(d)
-    result = [0]*self.n
-    result[self.n - 1] = pD[self.n - 1]
-    for i in range(self.n - 2, -1, -1):
-      result[i] = pD[i] - pMatrix.at(i,i+1)*result[i+1]
-    
-    return result
-    
-  
   def __str__(self):
     return str(self.matrix)
