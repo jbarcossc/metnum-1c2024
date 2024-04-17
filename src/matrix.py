@@ -4,8 +4,10 @@ from auxiliary import *
 class Matrix:
   # @param data: list[list](float)
   # data is expected to be homogeneus shape
-  def __init__(self, data):
-    self.matrix = np.array(data, dtype=float)
+  # @param type: type, matrix type
+  def __init__(self, data, type=float):
+    self.matrix = np.array(data, dtype=type)
+    self.type = type
     self.dim = [len(self.matrix),len(self.matrix[0])]
     self.n = len(self.matrix)
     self.m = len(self.matrix)
@@ -69,8 +71,8 @@ class Matrix:
   # @param e: float, near-zero division warning margin
   # @return Gaussian elimination matrix
   def gaussianElimination(self, b, partial=True, e=0.1):
-    result = Matrix(self.matrix)
-    resVector = np.array(b, dtype = float)
+    result = Matrix(self.matrix, self.type)
+    resVector = np.array(b, dtype = self.type)
     for i in range(0,self.dim[0]-1):
       # Pivot handling
       if partial:
