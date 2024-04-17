@@ -94,7 +94,7 @@ class Matrix:
           result.substractRow(j, i, multiplier)
           resVector = vectorSubstract(resVector,j,i,multiplier)
           
-    return [result,resVector]
+    return result,resVector
   
   # @type ndarray
   # @param b: list(float), independent vector
@@ -123,6 +123,28 @@ class Matrix:
         if abs(i - j) <= 1 and self.at(i,j) == 0:
           return False
     return True
+  
+  # @type [list(float),list(float),list(float)]
+  # @return a, lower diagonal
+  # @return b, main diagonal
+  # @return c, upper diagonal
+  def getDiagonals(self):
+    if not self.isTridiagonal():
+      raise Warning("Matrix is not tridiagonal.")
+    
+    a,b,c = [], [], []
+    a.append(0)
+    b.append(self.at(0,0))
+    c.append(self.at(0,1))
+    for i in range(1, self.n - 1):
+      a.append(self.at(i-1,i))
+      b.append(self.at(i,i))
+      c.append(self.at(i,i+1))
+    a.append(self.at(self.n - 2,self.n - 1))
+    b.append(self.at(self.n - 1,self.n - 1))
+    b.append(0)
+    
+    return a,b,c
   
   def __str__(self):
     return str(self.matrix)

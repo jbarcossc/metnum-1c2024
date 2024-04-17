@@ -1,8 +1,10 @@
-from ej3 import *
+from matrix import *
 
-a = [2,3]
-b = [1,7,5]
-c = [1,8]
-d = [6,9,6]
+mat = Matrix([[1,2.5,2.5],[0.5,2,3.5],[1.5,1.5,3]])
+b = [6,6,6]
 
-print(solveTridiagonal(a,b,c,d))
+a,b,c = mat.getDiagonals()
+
+print(a)
+print(b)
+print(c)
