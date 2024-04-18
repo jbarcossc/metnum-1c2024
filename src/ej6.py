@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 n = 101
 r = 10
 m = 1000
-alpha = 0.25  # Puedes ajustar este valor según lo necesites
+alpha = 0.25
 
 def create_A_explicit(alpha, n):
     A = np.zeros((n, n))
@@ -25,7 +25,7 @@ for _ in range(m):
 plt.plot(u)
 plt.xlabel('Posición')
 plt.ylabel('Valor de u')
-plt.title('Evolución de u (Método Explícito)')
+plt.title('Evolución de u (Explícito)')
 plt.show()
 
 def create_A_implicit(alpha, n):
@@ -50,6 +50,6 @@ for _ in range(m):
 plt.plot(u)
 plt.xlabel('Posición')
 plt.ylabel('Valor de u')
-plt.title('Evolución de u (Método Implícito)')
+plt.title('Evolución de u (Implícito)')
 plt.show()
 
